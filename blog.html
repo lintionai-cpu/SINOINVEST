@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SINOinvest</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Style the modal */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-flex flex-wrap">
+                    <a href="#" class="text-muted small me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Lennéstraße 5, 10785 Berlin</a>
+                    <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>(+49) 30 8321 4455</a>
+                    <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>sinoinvestfinance@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="../public/create-account.html"> <small class=" me-3 text-dark "><i class="fa fa-user text-primary me- 2 "></i>Register</small></a>
+                    <a href="../public/login.html "><small class="me-3 text-dark "><i class="fa fa-sign-in-alt text-primary me-2 "></i>Login</small></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>SINOinvest</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="blog.html" class="nav-item nav-link active">Blogs</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            <span class="dropdown-toggle">Pages</span>
+                        </a>
+                        <div class="dropdown-menu m-0">
+                            <a href="feature.html" class="dropdown-item">Our Features</a>
+                            <a href="team.html" class="dropdown-item">Our team</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="offer.html" class="dropdown-item">Our offer</a>
+                            <a href="FAQ.html" class="dropdown-item">FAQs</a>
+                             
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
+            </div>
+        </nav>
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Blog</h4>
+                <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary">Blog</li>
+                </ol>
+            </div>
+        </div>
+        <!-- Header End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Blog & News</h4>
+                <h1 class="display-5 mb-4">Insights that Move Markets, Strategies that Build Wealth</h1>
+                <p class="mb-0">Expert analysis, actionable strategies, and global financial trends—curated to keep you ahead of the curve
+                
+                </p>
+            </div>
+            <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item p-4">
+                    <div class="blog-img mb-4">
+                        <img src="img/service-1.jpg" class="img-fluid w-100 rounded" alt="">
+                        <div class="blog-title">
+                            <a href="#" class="btn">Stocks</a>
+                        </div>
+                    </div>
+                    <a href="#" class="h4 d-inline-block mb-3">AI Is Disrupting Wall Street — Here's What Investors Need to Know</a>
+                    <p class="mb-4">Artificial Intelligence is no longer just powering tech startups; it's actively reshaping how Wall Street operates.....
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                        <div class="ms-3">
+                            <h5>Admin</h5>
+                            <p class="mb-0">October 9, 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item p-4">
+                    <div class="blog-img mb-4">
+                        <img src="img/service-2.jpg" class="img-fluid w-100 rounded" alt="">
+                        <div class="blog-title">
+                            <a href="#" class="btn">Crypto</a>
+                        </div>
+                    </div>
+                    <a href="#" class="h4 d-inline-block mb-3">Is the Bitcoin ETF Boom the Catalyst for a New Bull Market?</a>
+                    <p class="mb-4">After years of regulatory tug-of-war, Bitcoin ETFs have finally hit the mainstream — and they're igniting a fresh wave of institutional interest. ....
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                        <div class="ms-3">
+                            <h5>Admin</h5>
+                            <p class="mb-0">October 9, 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item p-4">
+                    <div class="blog-img mb-4">
+                        <img src="img/service-3.jpg" class="img-fluid w-100 rounded" alt="">
+                        <div class="blog-title">
+                            <a href="#" class="btn">Real-Estate</a>
+                        </div>
+                    </div>
+                    <a href="#" class="h4 d-inline-block mb-3">Fractional Real Estate Investing: Democratizing Property Ownership</a>
+                    <p class="mb-4">Gone are the days when real estate investing was only for the ultra-wealthy. Thanks to the rise of fractional ownership platforms, everyday investors can now buy into high-value properties with as little as a few hundred dollars.....
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                        <div class="ms-3">
+                            <h5>Admin</h5>
+                            <p class="mb-0">October 9, 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item p-4">
+                    <div class="blog-img mb-4">
+                        <img src="img/service-4.jpg" class="img-fluid w-100 rounded" alt="">
+                        <div class="blog-title">
+                            <a href="#" class="btn">Investment Bank</a>
+                        </div>
+                    </div>
+                    <a href="#" id="blog-article-link" class="h4 d-inline-block mb-3">How Investment Banks Are Navigating the Post-Rate-Hike Era</a>
+                    <p class="mb-4">
+                        As central banks around the world recalibrate interest rates to tackle inflation, investment banks are being forced to pivot their strategies...
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                        <div class="ms-3">
+                            <h5>Admin</h5>
+                            <p class="mb-0">October 9, 2025</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5 border-start-0 border-end-0" style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-4">
+                    <div class="footer-item">
+                        <a href="index.html" class="p-0">
+                            <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>SINOinvest</h4>
+                            <!-- <img src="img/logo.png" alt="Logo"> -->
+                        </a>
+                        <p class="mb-2">
+                            Stay Ahead with SinoInvest Insights. Gain exclusive access to market intelligence, strategic investment opportunities, industry trends, and expert analysis.
+                        </p>
+                        <div class="d-flex">
+
+                            <form id="newsletter-form">
+                                <div class="row g-4">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name" name="name">
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email" name="email">
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit" value="Subscribe">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-2">
+                    <div class="footer-item">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="feature.html"><i class="fas fa-angle-right me-2"></i> Features</a>
+                        <a href="service.html"><i class="fas fa-angle-right me-2"></i> Services</a>
+                        <a href="blog.html"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                        <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="text-white mb-4">Support</h4>
+                        <a href="privacy-policy.html"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                        <a href="terms-conditions"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+                        <a href="disclaimer.html"><i class="fas fa-angle-right me-2"></i> Disclaimer</a>
+                        <a href="legals.html"><i class="fas fa-angle-right me-2"></i> Legals</a>
+                        <a href="faq.html"><i class="fas fa-angle-right me-2"></i> FAQs</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="text-white mb-0">Lennéstraße 5, 10785 Berlin</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <p class="text-white mb-0">sinoinvestfinance@gmail.com</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-phone-alt text-primary me-3"></i>
+                            <p class="text-white mb-0">(+49) 30 8321 4455</p>
+                        </div>
+                        <div class="d-flex">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>SINOinvest</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                    Copyright@ <a class="border-bottom text-white">2025</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Blog Modal container -->
+    <div id="blog-article-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="article-title"></h2>
+            <p id="article-content"></p>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+        <div id="toastMessage" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastBody">
+                <!-- Dynamic Message -->
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import Firebase SDK (v9+ modular)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    
+        // 🔹 Your Firebase Config (replace with your project settings)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmAwp7hoJ0aXIuvJ4QmmbGqBtJFg1Xxrw",
+    authDomain: "sinoinvest-d0593.firebaseapp.com",
+    projectId: "sinoinvest-d0593",
+    storageBucket: "sinoinvest-d0593.firebasestorage.app",
+    messagingSenderId: "676999129836",
+    appId: "1:676999129836:web:7c582892c0d94f7c9a13c9",
+    measurementId: "G-L14SSD4V50"
+        };
+    
+        // Init Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // DOM Elements
+        const form = document.getElementById("newsletter-form");
+        const toastElement = document.getElementById("toastMessage");
+        const toastBody = document.getElementById("toastBody");
+        const toast = new bootstrap.Toast(toastElement);
+    
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+    
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+    
+            // Validation
+            if (name === "" || email === "") {
+                showToast("Please fill in all fields.", "danger");
+                return;
+            }
+            if (!validateEmail(email)) {
+                showToast("Please enter a valid email address.", "danger");
+                return;
+            }
+    
+            try {
+                // Save to Firestore
+                await addDoc(collection(db, "newsletter_subscribers"), {
+                    name: name,
+                    email: email,
+                    subscribedAt: serverTimestamp()
+                });
+    
+                showToast(`Thank you, ${name}! You’ve successfully subscribed.`, "success");
+                form.reset();
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                showToast("Something went wrong. Please try again later.", "danger");
+            }
+        });
+    
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email.toLowerCase());
+        }
+    
+        function showToast(message, type) {
+            toastElement.className = `toast align-items-center text-bg-${type} border-0`;
+            toastBody.textContent = message;
+            toast.show();
+        }
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Get the modal and trigger link
+        const modal = document.getElementById('blog-article-modal');
+        const link = document.getElementById('blog-article-link');
+
+        const closeButton = document.getElementsByClassName('close')[0];
+
+        // Add event listener to the trigger link
+        link.addEventListener('click', () => {
+            // Get the article content
+            const articleTitle = 'How Investment Banks Are Navigating the Post-Rate-Hike Era';
+            const articleContent = 'As central banks around the world recalibrate interest rates to tackle inflation, investment banks are being forced to pivot their strategies.Gone are the days of easy money and zero - interest liquidity fueling massive M & A activity.In this new environment, dealmakers are more selective, and valuations are under tighter scrutiny.Yet, where others see constraint, smart firms see opportunity. Investment banks are leaning into restructuring, distressed asset acquisition, and alternative financing models. Private credit is booming, and advisory services are becoming more critical than ever as companies seek strategic guidance to weather macroeconomic shifts.For investors, this means the nature of investment banking revenue is evolving.It’s no longer just about IPOs and blockbuster deals. It is about adaptability, advisory depth, and cross - border expertise. Watch for banks expanding their digital infrastructure, private markets divisions, and ESG - aligned strategies— that’ s where the next wave of growth is hiding';
+
+
+
+            // Populate the modal with the article content
+            document.getElementById('article-title').innerHTML = articleTitle;
+            document.getElementById('article-content').innerHTML = articleContent;
+
+            // Show the modal
+            modal.style.display = 'block';
+        });
+
+        // Add event listener to the close button
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Add event listener to the window to close the modal when clicked outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+
+</html>
+
+</html>

@@ -1,0 +1,374 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINOinvest - Onboarding </title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        #hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid contact py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-xl-12">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+
+                            <form id="registration-form">
+                                <div class="row g-4" id="stage-1">
+                                    <h2 class="text-primary">Stage 1: Basic Information</h2>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name" name="name" required />
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email" name="email" required />
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button id="next-stage-1" class="btn btn-primary w-100 py-3" type="submit">Proceed </button>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 hidden" id="stage-2">
+                                    <h2 class="text-primary">Stage 2: Address and Contact Information</h2>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="address" placeholder="Your Address" name="address">
+                                            <label for="address">Your Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Your Phone" name="phone">
+                                            <label for="phone">Your Phone</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button id="next-stage-2" class="btn btn-primary w-100 py-3">Proceed </button>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 hidden" id="stage-3">
+                                    <h2 class="text-primary">Stage 3: Payment Information</h2>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input class="form-control border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="amount" type="number" placeholder="Enter amount" required />
+                                            <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="currency">
+                          <option value="USD">USD</option>
+                          <option value="EUR">EUR</option>
+                        </select>
+                                            <label for="name">Amount</label>
+                                        </div>
+                                    </div>
+                                    <div class=" col-lg-12 col-xl-6 ">
+                                        <div class="form-floating">
+                                            <select class="form-control border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="payment-method" required>
+                                                <option value>Select payment method</option>
+                                                <option value="crypto">Crypto</option>
+                                                <option value="card">Card</option>
+                                                <option value="bank-transfer">Bank Transfer</option>
+                                                </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-6 ">
+                                        <div class="form-floating ">
+                                            <textarea class="form-control border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="note" placeholder="Enter note"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input class="form-control border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="payment-proof" type="file" accept=".jpg, .jpeg, .png" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button id="submit-registration" class="btn btn-primary w-100 py-3">Proceed </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // registration.js
+        const registrationForm = document.getElementById('registration-form');
+        const stage1 = document.getElementById('stage-1');
+        const stage2 = document.getElementById('stage-2');
+        const stage3 = document.getElementById('stage-3');
+        const nextStage1Btn = document.getElementById('next-stage-1');
+        const nextStage2Btn = document.getElementById('next-stage-2');
+        const submitRegistrationBtn = document.getElementById('submit-registration');
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmAwp7hoJ0aXIuvJ4QmmbGqBtJFg1Xxrw",
+            authDomain: "sinoinvest-d0593.firebaseapp.com",
+            projectId: "sinoinvest-d0593",
+            storageBucket: "sinoinvest-d0593.firebasestorage.app",
+            messagingSenderId: "676999129836",
+            appId: "1:676999129836:web:7c582892c0d94f7c9a13c9",
+            measurementId: "G-L14SSD4V50"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Event listener for next stage 1 button click
+        nextStage1Btn.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            if (name && email) {
+                stage1.classList.add('hidden');
+                stage2.classList.remove('hidden');
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Event listener for next stage 2 button click
+        nextStage2Btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            if (address && phone) {
+                stage2.classList.add('hidden');
+                stage3.classList.remove('hidden');
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Event listener for submit registration button click
+        submitRegistrationBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const paymentMethod = document.getElementById('payment-method').value;
+            if (paymentMethod) {
+                // Create user account using Firebase Authentication
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                        // Store user data in Firestore
+                        const userData = {
+                            name,
+                            email,
+                            address,
+                            phone,
+                            paymentMethod,
+                        };
+                        firebase.firestore().collection('client').doc(userCredential.user.uid).set(userData)
+                            .then(() => {
+                                console.log('User registered successfully');
+                            })
+                            .catch((error) => {
+                                console.error('Error registering user:', error);
+                            });
+                    })
+                    .catch((error) => {
+                        console.error('Error creating user account:', error);
+                    });
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+    </script>
+    <!-- DepositScript-->
+    <script>
+        // Get form elements
+        const depositForm = document.getElementById('registration-form');
+        const amountInput = document.getElementById('amount');
+        const currencySelect = document.getElementById('currency');
+        const paymentMethodSelect = document.getElementById('payment-method');
+        const receiverAccountDetailsDiv = document.getElementById('receiver-account-details');
+        const noteInput = document.getElementById('note');
+        const paymentProofInput = document.getElementById('payment-proof');
+        const paymentProofContainer = document.getElementById('payment-proof-container');
+
+        // Update receiver account details based on payment method
+        paymentMethodSelect.addEventListener('change', (e) => {
+            const paymentMethod = e.target.value;
+            let receiverAccountDetails = '';
+
+            switch (paymentMethod) {
+                case 'crypto':
+                    receiverAccountDetails = `
+    <div class="flex flex-col space-y-4">
+      <div class="flex items-center space-x-4 p-4 bg-gray-100 rounded">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BTC_Logo.svg/200px-BTC_Logo.svg.png" alt="BTC" class="w-8 h-8">
+        <div>
+          <h3 class="text-lg font-bold">Bitcoin (BTC)</h3>
+          <p class="text-sm">Wallet address: <strong>bc1qekl97n3eg54lhwx6s8e25ttyk7g64ctvw80</strong></p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 p-4 bg-gray-100 rounded">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/200px-Ethereum_logo_2014.svg.png" alt="ETH" class="w-8 h-8">
+        <div>
+          <h3 class="text-lg font-bold">Ethereum (ETH)</h3>
+          <p class="text-sm">Wallet address: <strong>0x008661b1B1388216bb1306056cCE766197A3659</strong></p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 p-4 bg-gray-100 rounded">
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png" alt="UST" class="w-8 h-8">
+        <div>
+          <h3 class="text-lg font-bold">Tether USD (UST) TRC20</h3>
+          <p class="text-sm">Wallet address: <strong>TA7GGJQWTNfG83XzaiDNBn3z8yTsB5xte/strong></p>
+        </div>
+      </div>
+    </div>
+  `;
+                    paymentProofContainer.style.display = 'none';
+                    break;
+                case 'card':
+                    receiverAccountDetails = `
+    <div class="flex flex-col space-y-4">
+      <div class="flex items-center space-x-4 p-4 bg-gray-100 rounded">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" class="w-8 h-8">
+        <div>
+          <h3 class="text-lg font-bold">Mastercard</h3>
+          <p class="text-sm">Card number: <strong>1234-5678-9012-3456</strong></p>
+          <p class="text-sm">Expiry date: <strong>12/25</strong></p>
+          <p class="text-sm">CVV: <strong>123</strong></p>
+        </div>
+      </div>
+    </div>
+  `;
+                    paymentProofContainer.style.display = 'none';
+                    break;
+                case 'bank-transfer':
+                    receiverAccountDetails = `
+    <div class="flex flex-col space-y-4">
+      <div class="flex items-center space-x-4 p-4 bg-gray-100 rounded">
+        <div>
+          <h3 class="text-lg font-bold">Bank Transfer</h3>
+          <p class="text-sm">Account number: <strong>1234567890</strong></p>
+          <p class="text-sm">Bank name: <strong>Example Bank</strong></p>
+          <p class="text-sm">SWIFT code: <strong>EXAMPLEBANK</strong></p>
+        </div>
+      </div>
+    </div>
+  `;
+                    paymentProofContainer.style.display = 'block';
+                    break;
+                default:
+                    receiverAccountDetails = '';
+                    paymentProofContainer.style.display = 'none';
+            }
+
+            receiverAccountDetailsDiv.innerHTML = receiverAccountDetails;
+        });
+
+        // Handle form submission
+        depositForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const amount = amountInput.value;
+            const currency = currencySelect.value;
+            const paymentMethod = paymentMethodSelect.value;
+            const note = noteInput.value;
+            const paymentProof = paymentProofInput.files[0];
+
+            const data = {
+                amount,
+                currency,
+                paymentMethod,
+                note,
+            };
+
+            // Upload payment proof to Firebase Storage (if bank transfer)
+            if (paymentMethod === 'bank-transfer' && paymentProof) {
+                const storageRef = storage.ref(`payment-proofs/${paymentProof.name}`);
+                storageRef.put(paymentProof).then((snapshot) => {
+                    snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        data.paymentProof = downloadURL;
+                        // Call Firebase Function
+                        callFirebaseFunction(data);
+                    });
+                });
+            } else {
+                // Call Firebase Function
+                callFirebaseFunction(data);
+            }
+        });
+
+        // Call Firebase Function
+        function callFirebaseFunction(data) {
+            const depositFunction = functions.httpsCallable('deposit');
+            depositFunction(data).then((result) => {
+                console.log('Deposit successful:', result);
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Cloud Functions for Firebase
+        const functions = require('firebase-functions');
+
+        exports.deposit = functions.https.onCall((data, context) => {
+            const amount = data.amount;
+            const currency = data.currency;
+            const paymentMethod = data.paymentMethod;
+            const note = data.note;
+            const paymentProof = data.paymentProof;
+
+            // Process deposit data
+            console.log('Deposit data:', data);
+
+            // Return success message
+            return {
+                message: 'Deposit successful!'
+            };
+        });
+    </script>
+
+    <!-- DepositScript END-->
+
+</body>
+
+</html>
