@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account | SINOInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+        <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+            <div class="flex flex-col overflow-y-auto md:flex-row">
+                <div class="h-32 md:h-auto md:w-1/2">
+                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="img/create-account-office.jpeg" alt="Office" />
+                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="img/create-account-office-dark.jpeg" alt="Office" />
+                </div>
+                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2" id="loginForm">
+                    <div class="w-full">
+                        <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                            Create account
+                        </h1>
+                        <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Full Name</span>
+                                <input id="signup-name"
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    placeholder="Jane Doe" title="Enter a valid Name (e.g., john doe)"
+                                    required />
+                                
+                            </label> <br>
+                        <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Email</span>
+                                <input id="signup-email"
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    placeholder="Jane Doe" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                    title="Enter a valid email (e.g., user@example.com)" required />
+                                
+                            </label>
+                        <label class="block mt-4 text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Phone</span>
+                                <input id="signup-phone"
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    placeholder="+*** *** **** *** ***" type="tel"
+                                      
+                                    required />
+                                 
+                            </label>
+                        <label class="block mt-4 text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Password</span>
+                                <input id="signup-password"
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    placeholder="***************" type="password"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\s]{6,}$"
+                                    title="Password must be at least 6 characters, include one uppercase letter, one lowercase letter, one number, and no spaces"
+                                    required />
+                                 
+                            </label>
+
+                        <label class="block mt-4 text-sm">
+                                <select id="signup-role" class="w-full mb-4 p-2 border rounded" required>
+                                    <option value="client">Client</option>
+                                </select>
+                            </label>
+
+                        <button onclick="handleSignup()" class="block w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-gray-600 rounded-lg hover:text-yellow-500 hover:bg-white">Sign Up</button>
+                        <p id="signup-message" class="text-center mt-4 text-sm text-red-600"></p>
+                        <hr class="my-8" />
+                        <p class="mt-4">
+                            <a class="text-sm font-medium text-yellow-600 dark:text-yellow-600 hover:underline" href="login.html">
+                                    Already have an account? Login
+
+                                </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add this before </body> -->
+    <!---FIREBASE sIGNUP-->
+    <script>
+        // Replace with your actual admin email 
+        const ADMIN_EMAIL = "drixpro25@gmail.com";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmAwp7hoJ0aXIuvJ4QmmbGqBtJFg1Xxrw",
+            authDomain: "sinoinvest-d0593.firebaseapp.com",
+            projectId: "sinoinvest-d0593",
+            storageBucket: "sinoinvest-d0593.firebasestorage.app",
+            messagingSenderId: "676999129836",
+            appId: "1:676999129836:web:7c582892c0d94f7c9a13c9",
+            measurementId: "G-L14SSD4V50"
+        }; // Initialize Firebase 
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        async function handleSignup() {
+            const name = document.getElementById("signup-name").value.trim();
+            const email = document.getElementById("signup-email").value.trim();
+            const password = document.getElementById("signup-password").value.trim();
+            const phone = document.getElementById("signup-phone").value.trim();
+            const message = document.getElementById("signup-message");
+            message.textContent = "";
+            if (email === ADMIN_EMAIL) {
+                message.textContent = "You cannot create the admin account here.";
+                return;
+            }
+            try {
+                const cred = await auth.createUserWithEmailAndPassword(email, password);
+                const uid = cred.user.uid;
+                await db.collection("client").doc(uid).set({
+                    uid,
+                    role: "client",
+                    name,
+                    email,
+                    phone,
+                    portfolioValue: 0,
+                    cashBalance: 0,
+                    dailyChange: 0,
+                    stocks: [],
+                    crypto: [],
+                    realEstate: [],
+                    withdrawStatus: "none",
+                    paymentStatus: "unpaid",
+                    transactionHistory: [],
+                    createdAt: new Date().toISOString()
+                });
+                window.location.href = "public/client/index.html";
+            } catch (err) {
+                console.error("Signup failed:",
+                    err);
+                message.textContent = err.message;
+            }
+        }
+    </script>
+
+    <!--VALIDATION INPUTS-->
+
+
+</body>
+
+</html>
+
+</html>

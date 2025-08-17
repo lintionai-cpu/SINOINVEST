@@ -10,6 +10,8 @@
         <meta name="keywords"
             content="SinoInvest, global investments, real estate investing, crypto investing, cryptocurrency portfolio, stock market investments, diversified portfolio, alternative assets, high net worth investment, HNWI wealth management, institutional investment solutions, property investment, blockchain assets, passive income, capital growth strategies, premium investment platform">
 
+            <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,11 +99,15 @@
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-          <a href="index.html" class="navbar-brand p-0">
-            <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i><b>SINOinvest</b>
-                <hr>
-            </h1>
-        </a>
+            <div class="navbar-brand p-0 flex items-center gap-3 mb-8">
+                <div class="h-10 w-10 rounded-2xl bg-emerald-500 grid place-items-center text-white font-bold"><img src="img/favicon.ico" alt=""></div>
+                <div>
+                  <h1 class="text-lg font-semibold"><b>SINOinvest</b>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Invest Beyond Borders</p>
+                </h1>
+                   
+                </div>
+              </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
@@ -457,137 +463,139 @@
     // Optional: open a default panel on load (comment out if not needed)
     // showPanel('panel-global');
   </script>
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s" style="background-color: black;">
-        <div class="container py-5 border-start-0 border-end-0"
-            style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="footer-item">
-                        <a href="index.html" class="p-0">
-                            <h4 class="text-white">
-                                <i class="fas fa-search-dollar me-3"></i>SINOinvest
-                            </h4>
-                            <!-- <img src="img/logo.png" alt="Logo"> -->
-                        </a>
-                        <p class="mb-2">
-                            Curated investments. Institutional discipline. Product-grade experience.
-                        </p>
-                        <div class="d-flex">
-                            <form id="newsletter-form">
-                                <div class="row g-4">
-                                    <div class="col-lg-12 col-xl-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name"
-                                                placeholder="Your Name" name="name">
-                                            <label for="name">Your Name</label>
+
+     <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s" style="background-color: black;">
+            <div class="container py-5 border-start-0 border-end-0"
+                style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <div class="footer-item">
+                            <a href="index.html" class="p-0">
+                                <h4 class="text-white">
+                                    <i class="fas fa-search-dollar me-3"></i>SINOinvest
+                                </h4>
+                                <!-- <img src="img/logo.png" alt="Logo"> -->
+                            </a>
+                            <p class="mb-2">
+                                Curated investments. Institutional discipline. Product-grade experience.
+                            </p>
+                            <div class="d-flex">
+                                <form id="newsletter-form">
+                                    <div class="row g-4">
+                                        <div class="col-lg-12 col-xl-12">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="name"
+                                                    placeholder="Your Name" name="name">
+                                                <label for="name">Your Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-xl-12">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0" id="email"
+                                                    placeholder="Your Email" name="email">
+                                                <label for="email">Your Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit"
+                                                value="Subscribe">Send Message</button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-xl-12">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email"
-                                                placeholder="Your Email" name="email">
-                                            <label for="email">Your Email</label>
+                                </form>
+                                <div class="position-fixed bottom-11 end-7 p-3" style="z-index: 9999">
+                                    <div id="toastMessage" class="toast align-items-center text-bg-primary border-0"
+                                        role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body" id="toastBody">
+                                                <!-- Dynamic Message -->
+                                            </div>
+                                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                data-bs-dismiss="toast" aria-label="Close"></button>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit"
-                                            value="Subscribe">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="position-fixed bottom-11 end-7 p-3" style="z-index: 9999">
-                                <div id="toastMessage" class="toast align-items-center text-bg-primary border-0"
-                                    role="alert" aria-live="assertive" aria-atomic="true">
-                                    <div class="d-flex">
-                                        <div class="toast-body" id="toastBody">
-                                            <!-- Dynamic Message -->
-                                        </div>
-                                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
-                                            data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-2">
-                    <div class="footer-item">
-                        <h4 class="text-white mb-4">Quick Links</h4>
-                        <a href="about.html">
-                            <i class="fas fa-angle-right me-2"></i> About Us</a>
-                        <a href="feature.html">
-                            <i class="fas fa-angle-right me-2"></i> Feature
-                        </a>
-                        <a href="blog.html">
-                            <i class="fas fa-angle-right me-2"></i> Blog
-                        </a>
-                        <a href="contact.html">
-                            <i class="fas fa-angle-right me-2"></i> Contact us</a>
-                    </div>
-                </div>
-                <div class="footer-item">
-                    <h4 class="text-white mb-4">Legal</h4>
-                    <a href="terms-of-use.html">
-                        <i class="fas fa-angle-right me-2"></i> Terms of Use</a>
-                    <a href="privacy-policy.html">
-                        <i class="fas fa-angle-right me-2"></i> Privacy Notice</a>
-                    <a href="cookies.html">
-                        <i class="fas fa-angle-right me-2"></i> Cookies
-                    </a>
-                    <a href="disclosures.html">
-                        <i class="fas fa-angle-right me-2"></i> Regulatory Disclosures
-                    </a>
-
-                </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item">
-                        <h4 class="text-white mb-4">Contact Info</h4>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-map-marker-alt text-white me-3"></i>
-                            <p class="text-white mb-0">Lennéstraße 5, 10785 Berlin</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-envelope text-white me-3"></i>
-                            <p class="text-white mb-0">
-                                <a
-                                    href="mailto:sinoinvestfinance@gmail.com?subject=Hi%2C%20I%27m%20a%20client%20seeking%20to%20invest%20in%20SINOinvest">
-                                    info@sinoinvestfinance.com</a>
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fa fa-phone-alt text-white me-3"></i>
-                            <p class="text-white mb-0">(+49) 30 8321 4455</p>
-                        </div>
-                        <div class="d-flex">
-                            <p class="text-white mb-0 text-sm">
-                                WhatsApp/Telegram: Available on request
-                            </p>
-                            <!-- <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
-                                <i class="fab fa-facebook-f text-white"></i>
+                    <div class="col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Quick Links</h4>
+                            <a href="about.html">
+                                <i class="fas fa-angle-right me-2"></i> About Us</a>
+                            <a href="feature.html">
+                                <i class="fas fa-angle-right me-2"></i> Feature
                             </a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
-                                <i class="fab fa-twitter text-white"></i>
+                            <a href="blog.html">
+                                <i class="fas fa-angle-right me-2"></i> Blog
                             </a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
-                                <i class="fab fa-instagram text-white"></i>
-                            </a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="#">
-                                <i class="fab fa-linkedin-in text-white"></i>
-                            </a>-->
+                            <a href="contact.html">
+                                <i class="fas fa-angle-right me-2"></i> Contact us</a>
                         </div>
                     </div>
-                </div>
-                <div
-                    class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-                    <p>© <span id="year"></span> SINOInvest. All rights reserved.</p>
-                    <p>Investing involves risk. Past performance is not indicative of future results.</p>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Legal</h4>
+                            <a href="terms-of-use.html">
+                                <i class="fas fa-angle-right me-2"></i> Terms of Use</a>
+                            <a href="privacy-policy.html">
+                                <i class="fas fa-angle-right me-2"></i> Privacy Notice</a>
+                            <a href="cookies.html">
+                                <i class="fas fa-angle-right me-2"></i> Cookies
+                            </a>
+                            <a href="disclosures.html">
+                                <i class="fas fa-angle-right me-2"></i> Regulatory Disclosures
+                            </a>
+    
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Contact Info</h4>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-white me-3"></i>
+                                <p class="text-white mb-0">Lennéstraße 5, 10785 Berlin</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-envelope text-white me-3"></i>
+                                <p class="text-white mb-0">
+                                    <a
+                                        href="mailto:sinoinvestfinance@gmail.com?subject=Hi%2C%20I%27m%20a%20client%20seeking%20to%20invest%20in%20SINOinvest">
+                                        info@sinoinvestfinance.com</a>
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-phone-alt text-white me-3"></i>
+                                <p class="text-white mb-0">(+49) 30 8321 4455</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-white mb-0 text-sm">
+                                    WhatsApp/Telegram: Available on request
+                                </p>
+                                <!-- <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
+                                    <i class="fab fa-facebook-f text-white"></i>
+                                </a>
+                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
+                                    <i class="fab fa-twitter text-white"></i>
+                                </a>
+                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#">
+                                    <i class="fab fa-instagram text-white"></i>
+                                </a>
+                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="#">
+                                    <i class="fab fa-linkedin-in text-white"></i>
+                                </a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                        <p>© <span id="year"></span> SINOInvest. All rights reserved.</p>
+                        <p>Investing involves risk. Past performance is not indicative of future results.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+        <!-- Footer End -->
 
     
     <!-- Blog Modal container -->
