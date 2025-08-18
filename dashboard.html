@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SinoInvest — Client Dashboard</title>
 
-    <link rel="icon" type="img/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,10 +55,10 @@
         class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 p-4 lg:sticky lg:top-0 lg:h-screen shadow-soft">
         <div class="flex items-center gap-3 mb-8">
           <div class="h-10 w-10 rounded-2xl grid place-items-center text-white font-bold">
-            <img src="favicon.ico" alt="">
+            <img src="img/favicon.ico" alt="">
           </div>
           <div>
-            <h1 class="text-lg font-semibold"><b>SINOinvest</b></h1>                      
+            <h1 class="text-lg font-semibold"><b>SINOInvest</b></h1>                      
             <p class="text-xs text-gray-500 dark:text-gray-400">Client Dashboard</p>
           </div>
         </div>
@@ -456,17 +456,17 @@
                   class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2" />
                 <textarea name="message" placeholder="Describe your issue"
                   class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 h-28"></textarea>
-                <button class="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2">Submit</button>
+                <button class="rounded-xl bg-yellow-600 hover:bg-black text-white px-4 py-2">Submit</button>
               </form>
             </div>
             <div class="p-4 rounded-2xl bg-white dark:bg-gray-800 border shadow-soft">
               <h4 class="font-semibold mb-3">Contact</h4>
               <div class="space-y-1 text-sm">
-                <p>Email: <a class="text-emerald-600"
+                <p>Email: <a class="text-yellow-600"
                     href="mailto:sinovest@gmail.com?subject=Support%20Request">sinovest@gmail.com</a></p>
-                <p>WhatsApp: <a class="text-emerald-600" href="https://wa.me/2340000000000" target="_blank">+234 000 000
+                <p>WhatsApp: <a class="text-yellow-600" href="https://wa.me/2340000000000" target="_blank">+234 000 000
                     0000</a></p>
-                <p>Telegram: <a class="text-emerald-600" href="https://t.me/sinoinvest" target="_blank">@sinoinvest</a>
+                <p>Telegram: <a class="text-yellow-600" href="https://t.me/sinoinvest" target="_blank">@sinoinvest</a>
                 </p>
               </div>
             </div>
@@ -636,7 +636,7 @@
 
       async function seedDemo() {
         // Check if there are existing transactions
-        const txCol = collection(db, 'users', currentUID, 'transactions');
+        const txCol = collection(db, 'client', currentUID, 'transactions');
         const txSnap = await getDocs(query(txCol, limit(1)));
         if (!txSnap.empty) return;
 
@@ -648,7 +648,7 @@
           { symbol: 'REIT1', name: 'Berlin Office REIT', class: 'real_estate', units: 100, avgCost: 10, price: 10.6 },
         ];
         for (const a of assets) {
-          await addDoc(collection(db, 'users', currentUID, 'assets'), a);
+          await addDoc(collection(db, 'client', currentUID, 'assets'), a);
         }
         const deposits = [5000, 3000, 2000];
         for (const amt of deposits) {
@@ -659,7 +659,7 @@
 
       // Load KPI
       async function loadKPI() {
-        const assetsCol = collection(db, 'users', currentUID, 'assets');
+        const assetsCol = collection(db, 'client', currentUID, 'assets');
         const assetsSnap = await getDocs(assetsCol);
         let invested = 0, value = 0;
         assetsSnap.forEach(docu => {
@@ -676,7 +676,7 @@
 
       // Recent transactions
       async function loadRecentTx() {
-        const txSnap = await getDocs(query(collection(db, 'users', currentUID, 'transactions'), orderBy('createdAt', 'desc'), limit(5)));
+        const txSnap = await getDocs(query(collection(db, 'client', currentUID, 'transactions'), orderBy('createdAt', 'desc'), limit(5)));
         const body = $('recentTxBody');
         body.innerHTML = '';
         txSnap.forEach(d => {
@@ -693,7 +693,7 @@
 
       // Portfolio breakdown + holdings
       async function loadPortfolio() {
-        const assetCol = collection(db, 'users', currentUID, 'assets');
+        const assetCol = collection(db, 'client', currentUID, 'assets');
         const snap = await getDocs(assetCol);
         const items = [];
         const byClass = { stocks: 0, crypto: 0, real_estate: 0 };
@@ -750,7 +750,7 @@
 
       // Transactions table
       async function loadTransactions() {
-        const qcol = query(collection(db, 'users', currentUID, 'transactions'), orderBy('createdAt', 'desc'));
+        const qcol = query(collection(db, 'client', currentUID, 'transactions'), orderBy('createdAt', 'desc'));
         const snap = await getDocs(qcol);
         const body = $('txBody');
         const rows = [];
@@ -787,7 +787,7 @@
 
       // Linked methods
       async function loadLinkedMethods() {
-        const snap = await getDocs(collection(db, 'users', currentUID, 'methods'));
+        const snap = await getDocs(collection(db, 'client', currentUID, 'methods'));
         const box = $('linkedMethods');
         box.innerHTML = snap.empty ? '<span class="text-xs text-gray-500">None linked</span>' : '';
         snap.forEach(d => {
@@ -813,7 +813,7 @@
         const data = Object.fromEntries(new FormData(e.target).entries());
         const amt = Number(data.amount);
         if (!amt || amt < 10) return showToast('Min withdrawal is $10', 'error');
-        await addDoc(collection(db, 'users', currentUID, 'transactions'), { type: 'withdrawal', amount: amt, method: data.method, status: 'pending', createdAt: serverTimestamp() });
+        await addDoc(collection(db, 'client', currentUID, 'transactions'), { type: 'withdrawal', amount: amt, method: data.method, status: 'pending', createdAt: serverTimestamp() });
         showToast('Withdrawal submitted (pending)', 'success');
         e.target.reset();
         loadTransactions();
@@ -827,7 +827,7 @@
       $('form-link').addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
-        await addDoc(collection(db, 'users', currentUID, 'methods'), data);
+        await addDoc(collection(db, 'client', currentUID, 'methods'), data);
         showToast('Method linked', 'success');
         modal.classList.add('hidden');
         loadLinkedMethods();
@@ -835,7 +835,7 @@
 
       // Messages + Alerts
       async function loadMessages() {
-        const threadsCol = collection(db, 'users', currentUID, 'threads');
+        const threadsCol = collection(db, 'client', currentUID, 'threads');
         const snap = await getDocs(threadsCol);
         const list = $('threads');
         list.innerHTML = '';
@@ -853,7 +853,7 @@
       }
 
       async function openThread(threadId) {
-        const msgs = await getDocs(query(collection(db, 'users', currentUID, 'threads', threadId, 'messages'), orderBy('createdAt', 'asc')));
+        const msgs = await getDocs(query(collection(db, 'client', currentUID, 'threads', threadId, 'messages'), orderBy('createdAt', 'asc')));
         const chat = $('chatWindow');
         chat.innerHTML = '';
         msgs.forEach(d => {
@@ -869,20 +869,20 @@
           e.preventDefault();
           const text = $('msgText').value.trim();
           if (!text) return;
-          await addDoc(collection(db, 'users', currentUID, 'threads', threadId, 'messages'), { text, sender: 'client', createdAt: serverTimestamp() });
+          await addDoc(collection(db, 'client', currentUID, 'threads', threadId, 'messages'), { text, sender: 'client', createdAt: serverTimestamp() });
           $('msgText').value = '';
           openThread(threadId);
         }
       }
 
       $('btn-new-thread').addEventListener('click', async () => {
-        const ref = await addDoc(collection(db, 'users', currentUID, 'threads'), { subject: `Support ${new Date().toLocaleString()}`, createdAt: serverTimestamp() });
+        const ref = await addDoc(collection(db, 'client', currentUID, 'threads'), { subject: `Support ${new Date().toLocaleString()}`, createdAt: serverTimestamp() });
         await addDoc(collection(db, 'users', currentUID, 'threads', ref.id, 'messages'), { text: 'Hello, I need assistance.', sender: 'client', createdAt: serverTimestamp() });
         loadMessages();
       });
 
       async function loadAlerts() {
-        const snap = await getDocs(collection(db, 'users', currentUID, 'alerts'));
+        const snap = await getDocs(collection(db, 'client', currentUID, 'alerts'));
         const box = $('alerts');
         box.innerHTML = '';
         snap.forEach(d => {
@@ -969,7 +969,7 @@
       let allocationChart, roiChart, perfChart;
 
       async function getAllocationData() {
-        const snap = await getDocs(collection(db, 'users', currentUID, 'assets'));
+        const snap = await getDocs(collection(db, 'client', currentUID, 'assets'));
         const byClass = { stocks: 0, crypto: 0, real_estate: 0 };
         snap.forEach(d => {
           const a = d.data();
@@ -982,7 +982,7 @@
       }
 
       async function getROIData() {
-        const snap = await getDocs(collection(db, 'users', currentUID, 'assets'));
+        const snap = await getDocs(collection(db, 'client', currentUID, 'assets'));
         const byClass = { stocks: { inv: 0, val: 0 }, crypto: { inv: 0, val: 0 }, real_estate: { inv: 0, val: 0 } };
         snap.forEach(d => {
           const a = d.data();
