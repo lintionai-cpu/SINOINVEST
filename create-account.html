@@ -4,19 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>Create account | SINOInvest</title>
+    <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
 
 
 </head>
 
-<body>
+<body class="h-full flex items-center justify-center bg-gray-100 dark:bg-gray-900">
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
@@ -29,120 +27,219 @@
                         <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                             Create account
                         </h1>
-                        <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Full Name</span>
-                                <input id="signup-name"
-                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    placeholder="Jane Doe" title="Enter a valid Name (e.g., john doe)"
+                        
+                        <form id="signupForm" class="space-y-4" novalidate>
+                            <div class="space-y-1">
+                              <label for="fullName" class="text-sm text-gray-700 dark:text-gray-300">Full name</label>
+                              <input type="text" id="fullName" name="fullName" placeholder="Ada Lovelace"
+                                autocomplete="name"
+                                class="w-full rounded-xl border px-3 py-2 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                minlength="2" required />
+                              <p id="errFullName" class="hidden text-xs text-rose-600 mt-1"></p>
+                            </div>
+                      
+                            <div class="space-y-1">
+                              <label for="email" class="text-sm text-gray-700 dark:text-gray-300">Email address</label>
+                              <input type="email" id="email" name="email" placeholder="you@domain.com"
+                                autocomplete="email"
+                                class="w-full rounded-xl border px-3 py-2 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                required />
+                              <p id="errEmail" class="hidden text-xs text-rose-600 mt-1"></p>
+                            </div>
+                      
+                            <div class="grid grid-cols-1 gap-3">
+                              <div class="space-y-1">
+                                <label for="password" class="text-sm text-gray-700 dark:text-gray-300">Password</label>
+                                <div class="relative">
+                                  <input type="password" id="password" name="password" placeholder="Minimum 8 characters"
+                                    autocomplete="new-password"
+                                    class="w-full rounded-xl border px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                    minlength="8" required />
+                                  <button type="button" id="togglePwd" class="absolute inset-y-0 right-2 my-auto text-xs text-gray-500 dark:text-gray-300">Show</button>
+                                </div>
+                                <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden">
+                                  <div id="pwdStrength" class="h-1 w-0 bg-rose-500 transition-all"></div>
+                                </div>
+                                <p id="errPassword" class="hidden text-xs text-rose-600 mt-1"></p>
+                              </div>
+                      
+                              <div class="space-y-1">
+                                <label for="confirmPassword" class="text-sm text-gray-700 dark:text-gray-300">Confirm password</label>
+                                <div class="relative">
+                                  <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password"
+                                    autocomplete="new-password"
+                                    class="w-full rounded-xl border px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                     required />
-                                
-                            </label> <br>
-                        <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input id="signup-email"
-                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    placeholder="Jane Doe" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                    title="Enter a valid email (e.g., user@example.com)" required />
-                                
-                            </label>
-                        <label class="block mt-4 text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Phone</span>
-                                <input id="signup-phone"
-                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    placeholder="+*** *** **** ***" type="tel"
-                                      
-                                    required />
-                                 
-                            </label>
-                        <label class="block mt-4 text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input id="signup-password"
-                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    placeholder="******" type="password"
-                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\s]{6,}$"
-                                    title="Password must be at least 6 characters, include one uppercase letter, one lowercase letter, one number, and no spaces"
-                                    required />
-                                 
-                            </label>
-
-                        <label class="block mt-4 text-sm">
-                                <select id="signup-role" class="w-full mb-4 p-2 border rounded" required>
-                                    <option value="client">Client</option>
-                                </select>
-                            </label>
-
-                        <button onclick="handleSignup()" class="block w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-gray-600 rounded-lg hover:text-yellow-500 hover:bg-white">Sign Up</button>
-                        <p id="signup-message" class="text-center mt-4 text-sm text-red-600"></p>
-                        <hr class="my-8" />
-                        <p class="mt-4">
-                            <a class="text-sm font-medium text-yellow-600 dark:text-yellow-600 hover:underline" href="login.html">
-                                    Already have an account? Login
-
-                                </a>
-                        </p>
+                                  <button type="button" id="togglePwd2" class="absolute inset-y-0 right-2 my-auto text-xs text-gray-500 dark:text-gray-300">Show</button>
+                                </div>
+                                <p id="errConfirm" class="hidden text-xs text-rose-600 mt-1"></p>
+                              </div>
+                            </div>
+                      
+                            <div class="flex items-start gap-2">
+                              <input id="accept" type="checkbox" class="mt-1 rounded border-gray-300 dark:border-gray-600" required />
+                              <label for="accept" class="text-xs text-gray-600 dark:text-gray-400">
+                                I agree to the <a href="#" class="text-yellow-700 dark:text-yellow-400 underline">Terms</a> and <a href="#" class="text-yellow-700 dark:text-yellow-400 underline">Privacy Policy</a>.
+                              </label>
+                            </div>
+                      
+                            <button id="btnSubmit" type="submit"
+                              class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-xl font-medium disabled:opacity-60 disabled:cursor-not-allowed">
+                              <span id="btnLabel">Create account</span>
+                              <span id="btnSpinner" class="hidden ml-2 inline-block animate-spin">⏳</span>
+                            </button>
+                          </form>
+                            <p class="mt-4 text-sm text-center text-gray-600 dark:text-gray-400">
+                                Already have an account?
+                                <a href="login.html" class="text-yellow-700 dark:text-yellow-400 font-medium">Login</a>
+                              </p>
+                          
+                              <div id="toastHost" class="fixed top-5 right-5 z-50"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Add this before </body> -->
-    <!---FIREBASE sIGNUP-->
-    <script>
-        // Replace with your actual admin email 
-        const ADMIN_EMAIL = "drixpro25@gmail.com";
-        const firebaseConfig = {
-            apiKey: "AIzaSyAmAwp7hoJ0aXIuvJ4QmmbGqBtJFg1Xxrw",
-            authDomain: "sinoinvest-d0593.firebaseapp.com",
-            projectId: "sinoinvest-d0593",
-            storageBucket: "sinoinvest-d0593.firebasestorage.app",
-            messagingSenderId: "676999129836",
-            appId: "1:676999129836:web:7c582892c0d94f7c9a13c9",
-            measurementId: "G-L14SSD4V50"
-        }; // Initialize Firebase 
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        async function handleSignup() {
-            const name = document.getElementById("signup-name").value.trim();
-            const email = document.getElementById("signup-email").value.trim();
-            const password = document.getElementById("signup-password").value.trim();
-            const phone = document.getElementById("signup-phone").value.trim();
-            const message = document.getElementById("signup-message");
-            message.textContent = "";
-            if (email === ADMIN_EMAIL) {
-                message.textContent = "You cannot create the admin account here.";
-                return;
-            }
-            try {
-                const cred = await auth.createUserWithEmailAndPassword(email, password);
-                const uid = cred.user.uid;
-                await db.collection("client").doc(uid).set({
-                    uid,
-                    role: "client",
-                    name,
-                    email,
-                    phone,
-                    portfolioValue: 0,
-                    cashBalance: 0,
-                    dailyChange: 0,
-                    stocks: [],
-                    crypto: [],
-                    realEstate: [],
-                    withdrawStatus: "none",
-                    paymentStatus: "unpaid",
-                    transactionHistory: [],
-                    createdAt: new Date().toISOString()
-                });
-                window.location.href = "dashboard.html";
-            } catch (err) {
-                console.error("Signup failed:",
-                    err);
-                message.textContent = err.message;
-            }
-        }
-    </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!--VALIDATION INPUTS-->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+      <!-- Supabase JS (ESM) -->
+      <script type="module">
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm";
+    
+        // IMPORTANT: Replace with your project details. Do not commit real keys.
+        const SUPABASE_URL = 'https://nqfziiabvgjxolfklein.supabase.co';        // <-- replace
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xZnppaWFidmdqeG9sZmtsZWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3MzI2MDYsImV4cCI6MjA3MTMwODYwNn0.LmupQPyQzC2QZ-kIkNdr0_XO76zyJqLSygA1Tc03R4s'; 
+        const EMAIL_REDIRECT = location.origin + "/login.html";
+    
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    
+        // --- Toast (Tailwind-native, no deps)
+        function toast(msg, type = "info") {
+          const host = document.getElementById("toastHost");
+          const el = document.createElement("div");
+          el.textContent = msg;
+          el.className =
+            "mb-2 rounded-xl px-4 py-2 shadow-lg text-sm " +
+            (type === "error"
+              ? "bg-rose-600 text-white"
+              : type === "success"
+              ? "bg-emerald-600 text-white"
+              : "bg-gray-900 text-white");
+          host.appendChild(el);
+          setTimeout(() => el.remove(), 3500);
+        }
+    
+        // --- Helpers
+        const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        const weakPasswords = new Set(["password","12345678","qwertyui","letmein123","11111111","abcd1234","Passw0rd","123456789"]);
+    
+        function strengthMeter(pwd) {
+          let s = 0;
+          if (pwd.length >= 8) s++;
+          if (/[A-Z]/.test(pwd)) s++;
+          if (/[a-z]/.test(pwd)) s++;
+          if (/\d/.test(pwd)) s++;
+          if (/[^A-Za-z0-9]/.test(pwd)) s++;
+          if (weakPasswords.has(pwd.toLowerCase())) s = 1; // penalize common
+          return Math.min(s, 5);
+        }
+    
+        // --- UI bindings
+        const form = document.getElementById("signupForm");
+        const btn = document.getElementById("btnSubmit");
+        const btnLabel = document.getElementById("btnLabel");
+        const btnSpinner = document.getElementById("btnSpinner");
+        const pwd = document.getElementById("password");
+        const pwd2 = document.getElementById("confirmPassword");
+        const meter = document.getElementById("pwdStrength");
+    
+        document.getElementById("togglePwd").addEventListener("click", () => {
+          pwd.type = pwd.type === "password" ? "text" : "password";
+        });
+        document.getElementById("togglePwd2").addEventListener("click", () => {
+          pwd2.type = pwd2.type === "password" ? "text" : "password";
+        });
+    
+        pwd.addEventListener("input", () => {
+          const s = strengthMeter(pwd.value);
+          const pct = (s / 5) * 100;
+          meter.style.width = pct + "%";
+          meter.className =
+            "h-1 transition-all " +
+            (s <= 2 ? "bg-rose-500" : s === 3 ? "bg-amber-500" : "bg-emerald-500");
+        });
+    
+        function setBusy(busy) {
+          btn.disabled = busy;
+          btnSpinner.classList.toggle("hidden", !busy);
+          btnLabel.textContent = busy ? "Creating..." : "Create account";
+        }
+    
+        function showFieldError(id, msg) {
+          const el = document.getElementById(id);
+          el.textContent = msg || "";
+          el.classList.toggle("hidden", !msg);
+        }
+    
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          setBusy(true);
+    
+          const fullName = (document.getElementById("fullName").value || "").trim();
+          const email = (document.getElementById("email").value || "").trim();
+          const password = document.getElementById("password").value;
+          const confirmPassword = document.getElementById("confirmPassword").value;
+          const accepted = document.getElementById("accept").checked;
+    
+          // Reset messages
+          showFieldError("errFullName", "");
+          showFieldError("errEmail", "");
+          showFieldError("errPassword", "");
+          showFieldError("errConfirm", "");
+    
+          // Validation
+          if (fullName.length < 2) { showFieldError("errFullName", "Enter your full name."); setBusy(false); return; }
+          if (!emailRe.test(email)) { showFieldError("errEmail", "Enter a valid email."); setBusy(false); return; }
+          if (password.length < 8) { showFieldError("errPassword", "Minimum 8 characters."); setBusy(false); return; }
+          if (weakPasswords.has(password.toLowerCase())) { showFieldError("errPassword", "Password too common. Choose a stronger one."); setBusy(false); return; }
+          if (password !== confirmPassword) { showFieldError("errConfirm", "Passwords do not match."); setBusy(false); return; }
+          if (!accepted) { toast("You must accept the Terms.", "error"); setBusy(false); return; }
+    
+          try {
+            const { data, error } = await supabase.auth.signUp({
+              email,
+              password,
+              options: {
+                emailRedirectTo: EMAIL_REDIRECT,
+                data: { full_name: fullName }
+              }
+            });
+    
+            if (error) throw error;
+    
+            // If email confirmations are ON, no session will be returned until confirmed.
+            if (!data.session) {
+              toast("Signup successful. Please check your email to confirm.", "success");
+              setTimeout(() => (location.href = "login.html"), 2000);
+            } else {
+              // Edge case: confirmations off -> proceed to dashboard
+              toast("Account created.", "success");
+              setTimeout(() => (location.href = "dashboard.html"), 800);
+            }
+          } catch (err) {
+            toast(err.message || "Signup failed", "error");
+          } finally {
+            setBusy(false);
+          }
+        });
+    
+        // Redirect if already authenticated
+        supabase.auth.getSession().then(({ data }) => {
+          if (data.session?.user) location.href = "dashboard.html";
+        });
+      </script>
 
 
 </body>

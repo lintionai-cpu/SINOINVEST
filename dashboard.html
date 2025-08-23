@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SinoInvest — Client Dashboard</title>
+    <title>SINOInvest — Client Dashboard</title>
 
     <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png">
 
@@ -21,16 +21,15 @@
           }
         }
       }
+
     </script>
+
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Chart.js (for Pie/Bar/Line) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Firebase v10 SDKs -->
-    <script type="module" crossorigin src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
-    <script type="module" crossorigin src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
-    <script type="module" crossorigin src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
-    <script type="module" crossorigin src="https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js"></script>
+   
     <style>
       /* Smooth section transitions */
       .page {
@@ -42,6 +41,7 @@
       }
 
     </style>
+
   </head>
 
   <body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -58,50 +58,50 @@
             <img src="img/favicon.ico" alt="">
           </div>
           <div>
-            <h1 class="text-lg font-semibold"><b>SINOInvest</b></h1>                      
+            <h1 class="text-lg font-semibold"><b>SINOInvest</b></h1>
             <p class="text-xs text-gray-500 dark:text-gray-400">Client Dashboard</p>
           </div>
         </div>
 
         <nav class="space-y-1" id="sideNav">
           <a data-route="#/dashboard"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Dashboard</span>
           </a>
           <a data-route="#/portfolio"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="pie-chart" class="w-4 h-4"></i><span>Portfolio</span>
           </a>
           <a data-route="#/transactions"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="rows" class="w-4 h-4"></i><span>Transactions</span>
           </a>
           <a data-route="#/funds"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="wallet" class="w-4 h-4"></i><span>Withdraw / Deposit</span>
           </a>
           <a data-route="#/messages"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span>
           </a>
           <a data-route="#/settings"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span>
           </a>
           <a data-route="#/support"
-            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 font-medium">
+            class="nav-link flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-yellow-600 dark:hover:bg-gray-700 font-medium">
             <i data-lucide="life-buoy" class="w-4 h-4"></i><span>Support</span>
           </a>
         </nav>
 
         <div class="mt-8 space-y-2">
           <button id="btn-dark"
-            class="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-gray-100 dark:bg-gray-700">
+            class="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-gray-100 hover:text-yellow-600 dark:bg-gray-700">
             <span class="flex items-center gap-2"><i data-lucide="moon" class="w-4 h-4"></i> Dark Mode</span>
             <span id="darkState" class="text-xs px-2 py-0.5 rounded bg-gray-200 dark:bg-gray-600">Auto</span>
           </button>
           <button id="btn-signout"
-            class="w-full flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
+            class="w-full flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 hover:text-yellow-600 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
             <i data-lucide="log-out" class="w-4 h-4"></i> Sign out
           </button>
         </div>
@@ -113,7 +113,9 @@
         <header class="flex items-center justify-between">
           <div>
             <h2 id="pageTitle" class="text-xl sm:text-2xl font-bold">Dashboard</h2>
-            <p class="text-xs text-gray-500 dark:text-gray-400" id="userEmail">—</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400" id="userEmail"></p>
+            
+            
           </div>
           <div class="flex items-center gap-2">
             <div class="relative">
@@ -296,7 +298,7 @@
             <div class="p-4 rounded-2xl bg-white dark:bg-gray-800 border shadow-soft">
               <h4 class="font-semibold mb-3">Deposit Funds</h4>
               <form id="form-deposit" class="space-y-3">
-                <input name="amount" type="number" min="10" step="0.01" placeholder="Amount (USD)"
+                <input name="amount" type="number" min="500" step="0.01" placeholder="Amount (USD)"
                   class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2"
                   required />
                 <select name="method"
@@ -306,8 +308,7 @@
                   <option value="card">Debit/Credit Card</option>
                   <option value="crypto">Crypto (USDT/TRC20)</option>
                 </select>
-                <button
-                  class="w-full rounded-xl bg-yellow-600 hover:bg-emerald-700 text-white px-4 py-2">Deposit</button>
+                <button class="w-full rounded-xl bg-yellow-600 hover:bg-gray-900 text-white px-4 py-2">Deposit</button>
               </form>
               <div class="mt-3 text-xs text-gray-500">Linked methods:</div>
               <div id="linkedMethods" class="mt-1 text-sm"></div>
@@ -318,7 +319,7 @@
             <div class="p-4 rounded-2xl bg-white dark:bg-gray-800 border shadow-soft">
               <h4 class="font-semibold mb-3">Withdraw Funds</h4>
               <form id="form-withdraw" class="space-y-3">
-                <input name="amount" type="number" min="10" step="0.01" placeholder="Amount (USD)"
+                <input name="amount" type="number" min="500" step="0.01" placeholder="Amount (USD)"
                   class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2"
                   required />
                 <select name="method"
@@ -463,9 +464,9 @@
               <h4 class="font-semibold mb-3">Contact</h4>
               <div class="space-y-1 text-sm">
                 <p>Email: <a class="text-yellow-600"
-                    href="mailto:sinovest@gmail.com?subject=Support%20Request">sinovest@gmail.com</a></p>
-                <p>WhatsApp: <a class="text-yellow-600" href="https://wa.me/2340000000000" target="_blank">+234 000 000
-                    0000</a></p>
+                    href="mailto:sinovest@gmail.com?subject=Support%20Request">info@sinoinvestfinance.com</a></p>
+                <p>WhatsApp: <a class="text-yellow-600" href="https://wa.me/49308321445" target="_blank">(+49) 30 8321 4455
+                    </a></p>
                 <p>Telegram: <a class="text-yellow-600" href="https://t.me/sinoinvest" target="_blank">@sinoinvest</a>
                 </p>
               </div>
@@ -503,526 +504,676 @@
         </form>
       </div>
     </div>
+    
 
-    <!-- APP SCRIPT -->
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
-      import { getAuth, onAuthStateChanged, signOut, updatePassword, reauthenticateWithCredential, EmailAuthProvider, multiFactor, PhoneAuthProvider, PhoneMultiFactorGenerator } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js';
-      import { getFirestore, doc, getDoc, setDoc, collection, query, where, orderBy, limit, getDocs, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js';
 
-      // ====== CONFIG (replace with your real keys) ======
-      const firebaseConfig = {
-        apiKey: "AIzaSyAmAwp7hoJ0aXIuvJ4QmmbGqBtJFg1Xxrw",
-        authDomain: "sinoinvest-d0593.firebaseapp.com",
-        projectId: "sinoinvest-d0593",
-        storageBucket: "sinoinvest-d0593.firebasestorage.app",
-        messagingSenderId: "676999129836",
-        appId: "1:676999129836:web:7c582892c0d94f7c9a13c9",
-        measurementId: "G-L14SSD4V50"
-      };
+<!-- Supabase JS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-      // ====== INIT ======
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
+<script>
+/**
+ * SINOInvest — Supabase Dashboard Controller
+ * Controls: auth-gate, routing, data fetch, updates, charts, forms, toasts, dark mode
+ * Requires: Tailwind (already on page), Chart.js (already on page), Lucide (already on page)
+ * File target: dashboard.html
+ */
 
-      // ====== UTIL ======
-      const $ = (id) => document.getElementById(id);
-      const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+;(() => {
+  // ==== 0) CONFIG =====
+  const SUPABASE_URL = 'https://nqfziiabvgjxolfklein.supabase.co';        // <-- replace
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xZnppaWFidmdqeG9sZmtsZWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3MzI2MDYsImV4cCI6MjA3MTMwODYwNn0.LmupQPyQzC2QZ-kIkNdr0_XO76zyJqLSygA1Tc03R4s';             // <-- replace
+  const LOGIN_PAGE = 'login.html'; // If session missing, redirect here
 
-      function showToast(msg, type = 'info') {
-        const el = $('toast');
-        el.className = `fixed top-5 right-5 z-50`;
-        el.innerHTML = `<div class="rounded-xl px-4 py-3 shadow-soft border ${type === 'success' ? 'border-yellow-200 bg-emerald-50 text-gray-700' : type === 'error' ? 'border-rose-200 bg-rose-50 text-rose-700' : 'border-gray-200 bg-white text-gray-900'}">${msg}</div>`;
-        el.classList.remove('hidden');
-        setTimeout(() => { el.classList.add('hidden'); }, 3200);
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+  // Basic DOM utils
+  const $  = (id) => document.getElementById(id)
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel))
+
+  // ==== 1) TOAST (Tailwind, no deps) ====
+  function toast(message, type = 'info') {
+    const host = $('toast')
+    if (!host) return alert(message)
+    host.className = 'fixed top-5 right-5 z-50'
+    const el = document.createElement('div')
+    const colors = {
+      info:   'bg-gray-900 text-white',
+      success:'bg-green-600 text-white',
+      error:  'bg-rose-600 text-white',
+      warn:   'bg-amber-500 text-white',
+    }
+    el.className = `mb-2 rounded-xl px-4 py-2 shadow-lg ${colors[type] || colors.info}`
+    el.textContent = message
+    host.appendChild(el)
+    setTimeout(() => el.remove(), 3500)
+  }
+
+  // ==== 2) AUTH-GATE ====
+  let currentUser = null
+
+  async function ensureSession() {
+    const { data, error } = await supabase.auth.getSession()
+    if (error) {
+      toast(error.message, 'error')
+      location.href = LOGIN_PAGE
+      return null
+    }
+    if (!data.session) {
+      location.href = LOGIN_PAGE
+      return null
+    }
+    return data.session.user
+  }
+
+  // ==== 3) ROUTER (hash-based) ====
+  const routes = {
+    '#/dashboard': 'page-dashboard',
+    '#/portfolio': 'page-portfolio',
+    '#/transactions': 'page-transactions',
+    '#/funds': 'page-funds',
+    '#/messages': 'page-messages',
+    '#/settings': 'page-settings',
+    '#/support': 'page-support',
+  }
+
+  function setActiveRoute(hash) {
+    const target = routes[hash] || routes['#/dashboard']
+    $$('#pageTitle').forEach(el => el.textContent = (hash?.slice(2) || 'dashboard').replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase()))
+    $$('.page').forEach(sec => sec.classList.remove('active'))
+    $(target).classList.add('active')
+    // Highlight active in sidebar
+    $$('#sideNav .nav-link').forEach(a => {
+      if (a.getAttribute('data-route') === hash) {
+        a.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-yellow-600')
+      } else {
+        a.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-yellow-600')
       }
+    })
+  }
 
-      function formatMoney(v, currency = 'USD') {
-        const num = Number(v || 0);
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(num);
-      }
-
-      function setActive(route) {
-        $$('#sideNav .nav-link').forEach(a => {
-          const active = a.getAttribute('data-route') === route;
-          a.classList.toggle('bg-gray-900', active);
-          a.classList.toggle('text-white', active);
-          a.classList.toggle('dark:bg-gray-700', active);
-        });
-        $$('#main .page');
-      }
-
-      // Router (hash-based)
-      const routes = ['#/dashboard', '#/portfolio', '#/transactions', '#/funds', '#/messages', '#/settings', '#/support'];
-      function navigate(hash) {
-        const route = routes.includes(hash) ? hash : '#/dashboard';
-        setActive(route);
-        $('pageTitle').textContent = route.replace('#/', '').replace(/\b\w/g, ch => ch.toUpperCase());
-        $$('.page').forEach(p => p.classList.remove('active'));
-        const page = document.getElementById('page-' + route.replace('#/', ''));
-        page?.classList.add('active');
-        location.hash = route;
-        if (route === '#/dashboard') drawCharts();
-        if (route === '#/portfolio') drawPerf();
-      }
-
-      window.addEventListener('hashchange', () => navigate(location.hash));
-
-      // Dark mode
-      const btnDark = $('btn-dark');
-      btnDark?.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        $('darkState').textContent = document.documentElement.classList.contains('dark') ? 'On' : 'Off';
-        drawCharts(true); drawPerf(true);
-      });
-
-      // Sign out
-      $('btn-signout')?.addEventListener('click', async () => {
-        await signOut(auth);
-        showToast('Signed out', 'success');
-      });
-
-      // ====== DEMO AUTH FALLBACK ======
-      // For demo, if no user is logged in, mock a read-only view using a seeded UID.
-      let currentUID = null;
-
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          currentUID = user.uid;
-          $('userEmail').textContent = user.email || '—';
-          await bootstrapData();
-        } else {
-          // Anonymous demo user
-          currentUID = 'demo-user-001';
-          $('userEmail').textContent = 'demo@sinoinvest';
-          await bootstrapData(true);
-          showToast('Demo mode: sign in to persist data.', 'info');
-        }
-        navigate(location.hash);
-      });
-
-      // ====== DATA LAYERS ======
-      async function bootstrapData(isDemo = false) {
-        // Create baseline documents if missing
-        const profileRef = doc(db, 'profiles', currentUID);
-        const profileSnap = await getDoc(profileRef);
-        if (!profileSnap.exists()) {
-          await setDoc(profileRef, {
-            fullName: isDemo ? 'Demo User' : '',
-            phone: '',
-            country: 'Nigeria',
-            currency: 'USD',
-            theme: 'system',
-            createdAt: serverTimestamp()
-          });
-        }
-
-        // Seed demo assets/tx if demo
-        if (isDemo) {
-          await seedDemo();
-        }
-
-        await loadKPI();
-        await loadRecentTx();
-        await loadPortfolio();
-        await loadTransactions();
-        await loadMessages();
-        await loadAlerts();
-        await loadPreferences();
-        await loadLinkedMethods();
-        await loadFAQs();
-      }
-
-      async function seedDemo() {
-        // Check if there are existing transactions
-        const txCol = collection(db, 'client', currentUID, 'transactions');
-        const txSnap = await getDocs(query(txCol, limit(1)));
-        if (!txSnap.empty) return;
-
-        const assets = [
-          { symbol: 'AAPL', name: 'Apple Inc.', class: 'stocks', units: 12, avgCost: 165, price: 195 },
-          { symbol: 'TSLA', name: 'Tesla Inc.', class: 'stocks', units: 5, avgCost: 210, price: 230 },
-          { symbol: 'BTC', name: 'Bitcoin', class: 'crypto', units: 0.12, avgCost: 52000, price: 61000 },
-          { symbol: 'ETH', name: 'Ethereum', class: 'crypto', units: 1.8, avgCost: 1700, price: 3200 },
-          { symbol: 'REIT1', name: 'Berlin Office REIT', class: 'real_estate', units: 100, avgCost: 10, price: 10.6 },
-        ];
-        for (const a of assets) {
-          await addDoc(collection(db, 'client', currentUID, 'assets'), a);
-        }
-        const deposits = [5000, 3000, 2000];
-        for (const amt of deposits) {
-          await addDoc(txCol, { type: 'deposit', amount: amt, method: 'bank', status: 'completed', createdAt: serverTimestamp() });
-        }
-        await addDoc(txCol, { type: 'dividend', amount: 42.25, method: 'portfolio', status: 'completed', createdAt: serverTimestamp() });
-      }
-
-      // Load KPI
-      async function loadKPI() {
-        const assetsCol = collection(db, 'client', currentUID, 'assets');
-        const assetsSnap = await getDocs(assetsCol);
-        let invested = 0, value = 0;
-        assetsSnap.forEach(docu => {
-          const a = docu.data();
-          invested += (a.units || 0) * (a.avgCost || 0);
-          value += (a.units || 0) * (a.price || 0);
-        });
-        const returns = value - invested;
-        $('kpi-invested').textContent = formatMoney(invested);
-        $('kpi-returns').textContent = formatMoney(returns);
-        $('kpi-balance').textContent = formatMoney(Math.max(0, 200 + (returns > 0 ? 50 : 0))); // demo balance
-        $('kpi-roi7d').textContent = `${((returns / (invested || 1)) * 100).toFixed(2)}%`;
-      }
-
-      // Recent transactions
-      async function loadRecentTx() {
-        const txSnap = await getDocs(query(collection(db, 'client', currentUID, 'transactions'), orderBy('createdAt', 'desc'), limit(5)));
-        const body = $('recentTxBody');
-        body.innerHTML = '';
-        txSnap.forEach(d => {
-          const t = d.data();
-          body.innerHTML += `<tr>
-          <td class="py-2">${t.createdAt?.toDate?.().toLocaleDateString?.() || '—'}</td>
-          <td class="py-2 capitalize">${t.type}</td>
-          <td class="py-2">${t.asset || '-'}</td>
-          <td class="py-2">${formatMoney(t.amount)}</td>
-          <td class="py-2"><span class="text-xs px-2 py-0.5 rounded ${t.status === 'completed' ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'}">${t.status || 'pending'}</span></td>
-        </tr>`;
-        });
-      }
-
-      // Portfolio breakdown + holdings
-      async function loadPortfolio() {
-        const assetCol = collection(db, 'client', currentUID, 'assets');
-        const snap = await getDocs(assetCol);
-        const items = [];
-        const byClass = { stocks: 0, crypto: 0, real_estate: 0 };
-        snap.forEach(d => {
-          const a = d.data();
-          const market = (a.units || 0) * (a.price || 0);
-          items.push({ id: d.id, ...a, market });
-          byClass[a.class] = (byClass[a.class] || 0) + market;
-        });
-        // class breakdown UI
-        const total = Object.values(byClass).reduce((s, v) => s + v, 0) || 1;
-        const box = $('classBreakdown');
-        box.innerHTML = '';
-        Object.entries(byClass).forEach(([k, v]) => {
-          const pct = (v / total * 100).toFixed(1);
-          const label = k === 'real_estate' ? 'Real Estate' : k[0].toUpperCase() + k.slice(1);
-          box.innerHTML += `<div class="flex items-center justify-between p-3 rounded-xl border border-gray-200 dark:border-gray-700">
-          <span>${label}</span>
-          <span class="font-semibold">${pct}%</span>
-        </div>`;
-        });
-
-        // holdings table
-        const body = $('assetsBody');
-        body.innerHTML = '';
-        for (const a of items) {
-          const pl = a.market - (a.units * a.avgCost);
-          const plCls = pl >= 0 ? 'text-emerald-600' : 'text-rose-600';
-          body.innerHTML += `<tr>
-          <td class="py-2">${a.name} <span class="text-xs text-gray-500">(${a.symbol})</span></td>
-          <td class="py-2 capitalize">${a.class.replace('_', ' ')}</td>
-          <td class="py-2">${a.units}</td>
-          <td class="py-2">${formatMoney(a.avgCost)}</td>
-          <td class="py-2">${formatMoney(a.market)}</td>
-          <td class="py-2 ${plCls}">${pl >= 0 ? '+' : ''}${formatMoney(pl)}</td>
-        </tr>`;
-        }
-
-        // search & filter
-        $('assetSearch').addEventListener('input', (e) => filterAssets());
-        $('assetFilter').addEventListener('change', () => filterAssets());
-        function filterAssets() {
-          const q = $('assetSearch').value.toLowerCase();
-          const f = $('assetFilter').value;
-          const rows = $$('#assetsBody tr');
-          rows.forEach(r => {
-            const name = r.children[0].textContent.toLowerCase();
-            const cls = r.children[1].textContent.toLowerCase().replace(' ', '_');
-            const match = name.includes(q) && (f === 'all' || f === cls);
-            r.classList.toggle('hidden', !match);
-          })
-        }
-      }
-
-      // Transactions table
-      async function loadTransactions() {
-        const qcol = query(collection(db, 'client', currentUID, 'transactions'), orderBy('createdAt', 'desc'));
-        const snap = await getDocs(qcol);
-        const body = $('txBody');
-        const rows = [];
-        snap.forEach(d => {
-          const t = d.data();
-          rows.push(`<tr>
-          <td class="py-2">${t.createdAt?.toDate?.().toLocaleString?.() || '—'}</td>
-          <td class="py-2 capitalize">${t.type}</td>
-          <td class="py-2">${t.ref || '-'}</td>
-          <td class="py-2">${formatMoney(t.amount)}</td>
-          <td class="py-2">${t.method || '-'}</td>
-          <td class="py-2">${t.status || 'pending'}</td>
-        </tr>`);
-        });
-        body.innerHTML = rows.join('');
-
-        // filters
-        $('txTypeFilter').addEventListener('change', applyFilters);
-        $('txFrom').addEventListener('change', applyFilters);
-        $('txTo').addEventListener('change', applyFilters);
-        function applyFilters() {
-          const type = $('txTypeFilter').value;
-          const from = new Date($('txFrom').value || '1970-01-01');
-          const to = new Date($('txTo').value || '2999-12-31');
-          $$('#txBody tr').forEach(r => {
-            const tType = r.children[1].textContent.toLowerCase();
-            const tDate = new Date(r.children[0].textContent);
-            const matchType = type === 'all' || tType === type;
-            const matchDate = tDate >= from && tDate <= to;
-            r.classList.toggle('hidden', !(matchType && matchDate));
-          })
-        }
-      }
-
-      // Linked methods
-      async function loadLinkedMethods() {
-        const snap = await getDocs(collection(db, 'client', currentUID, 'methods'));
-        const box = $('linkedMethods');
-        box.innerHTML = snap.empty ? '<span class="text-xs text-gray-500">None linked</span>' : '';
-        snap.forEach(d => {
-          const m = d.data();
-          box.innerHTML += `<div class="text-sm">• ${m.type.toUpperCase()} — ${m.label}</div>`
-        })
-      }
-
-      // Deposit/Withdraw
-      $('form-deposit').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target).entries());
-        const amt = Number(data.amount);
-        if (!amt || amt < 10) return showToast('Min deposit is $10', 'error');
-        await addDoc(collection(db, 'users', currentUID, 'transactions'), { type: 'deposit', amount: amt, method: data.method, status: 'completed', createdAt: serverTimestamp() });
-        showToast('Deposit recorded', 'success');
-        e.target.reset();
-        loadRecentTx(); loadTransactions();
-      });
-
-      $('form-withdraw').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target).entries());
-        const amt = Number(data.amount);
-        if (!amt || amt < 10) return showToast('Min withdrawal is $10', 'error');
-        await addDoc(collection(db, 'client', currentUID, 'transactions'), { type: 'withdrawal', amount: amt, method: data.method, status: 'pending', createdAt: serverTimestamp() });
-        showToast('Withdrawal submitted (pending)', 'success');
-        e.target.reset();
-        loadTransactions();
-      });
-
-      // Link modal
-      const modal = $('modal');
-      $('btn-link').addEventListener('click', () => modal.classList.remove('hidden'));
-      $('modal-close').addEventListener('click', () => modal.classList.add('hidden'));
-      $('modal-cancel').addEventListener('click', () => modal.classList.add('hidden'));
-      $('form-link').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target).entries());
-        await addDoc(collection(db, 'client', currentUID, 'methods'), data);
-        showToast('Method linked', 'success');
-        modal.classList.add('hidden');
-        loadLinkedMethods();
-      });
-
-      // Messages + Alerts
-      async function loadMessages() {
-        const threadsCol = collection(db, 'client', currentUID, 'threads');
-        const snap = await getDocs(threadsCol);
-        const list = $('threads');
-        list.innerHTML = '';
-        if (snap.empty) {
-          list.innerHTML = '<div class="text-sm text-gray-500">No conversations yet</div>';
-        }
-        snap.forEach(d => {
-          const t = d.data();
-          const el = document.createElement('button');
-          el.className = 'w-full text-left p-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700';
-          el.textContent = t.subject || 'Support';
-          el.onclick = () => openThread(d.id);
-          list.appendChild(el);
-        })
-      }
-
-      async function openThread(threadId) {
-        const msgs = await getDocs(query(collection(db, 'client', currentUID, 'threads', threadId, 'messages'), orderBy('createdAt', 'asc')));
-        const chat = $('chatWindow');
-        chat.innerHTML = '';
-        msgs.forEach(d => {
-          const m = d.data();
-          const me = m.sender === 'client';
-          const bubble = document.createElement('div');
-          bubble.className = `max-w-[80%] ${me ? 'ml-auto bg-emerald-600 text-white' : 'mr-auto bg-gray-100 dark:bg-gray-700'} px-3 py-2 rounded-2xl`;
-          bubble.textContent = m.text;
-          chat.appendChild(bubble);
-        })
-        chat.scrollTop = chat.scrollHeight;
-        $('form-message').onsubmit = async (e) => {
-          e.preventDefault();
-          const text = $('msgText').value.trim();
-          if (!text) return;
-          await addDoc(collection(db, 'client', currentUID, 'threads', threadId, 'messages'), { text, sender: 'client', createdAt: serverTimestamp() });
-          $('msgText').value = '';
-          openThread(threadId);
-        }
-      }
-
-      $('btn-new-thread').addEventListener('click', async () => {
-        const ref = await addDoc(collection(db, 'client', currentUID, 'threads'), { subject: `Support ${new Date().toLocaleString()}`, createdAt: serverTimestamp() });
-        await addDoc(collection(db, 'users', currentUID, 'threads', ref.id, 'messages'), { text: 'Hello, I need assistance.', sender: 'client', createdAt: serverTimestamp() });
-        loadMessages();
-      });
-
-      async function loadAlerts() {
-        const snap = await getDocs(collection(db, 'client', currentUID, 'alerts'));
-        const box = $('alerts');
-        box.innerHTML = '';
-        snap.forEach(d => {
-          const a = d.data();
-          box.innerHTML += `<div class="p-3 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <div>
-            <div class="font-medium">${a.title || 'Alert'}</div>
-            <div class="text-xs text-gray-500">${a.body || ''}</div>
-          </div>
-          <span class="text-xs text-gray-400">${a.createdAt?.toDate?.().toLocaleDateString?.() || ''}</span>
-        </div>`
-        })
-        $('badge').classList.toggle('hidden', snap.empty);
-        $('badge').textContent = snap.size;
-        $('btn-clear-alerts').onclick = async () => {
-          box.innerHTML = '';
-          $('badge').classList.add('hidden');
-          showToast('Alerts cleared', 'success');
-        }
-      }
-
-      // Preferences/Settings
-      async function loadPreferences() {
-        const snap = await getDoc(doc(db, 'profiles', currentUID));
-        const p = snap.data() || {};
-        $('pref-language').value = p.language || 'en';
-        $('pref-theme').value = p.theme || 'system';
-        $('pref-currency').value = p.currency || 'USD';
-        document.documentElement.classList.toggle('dark', (p.theme || 'system') === 'dark');
-      }
-
-      $('pref-language').addEventListener('change', async (e) => {
-        await setDoc(doc(db, 'profiles', currentUID), { language: e.target.value }, { merge: true });
-        showToast('Language updated', 'success');
+  function initRouter() {
+    // Default to dashboard
+    if (!location.hash || !routes[location.hash]) location.hash = '#/dashboard'
+    setActiveRoute(location.hash)
+    window.addEventListener('hashchange', () => setActiveRoute(location.hash))
+    // Sidebar clicks
+    $$('#sideNav .nav-link').forEach(a => {
+      a.addEventListener('click', () => {
+        const r = a.getAttribute('data-route')
+        if (r && routes[r]) location.hash = r
       })
-      $('pref-theme').addEventListener('change', async (e) => {
-        await setDoc(doc(db, 'profiles', currentUID), { theme: e.target.value }, { merge: true });
-        document.documentElement.classList.toggle('dark', e.target.value === 'dark');
-        showToast('Theme updated', 'success');
-        drawCharts(true); drawPerf(true);
+    })
+  }
+
+  // ==== 4) DARK MODE ====
+  function applyDark(pref = localStorage.getItem('theme') || 'system') {
+    const root = document.documentElement
+    const dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    root.classList.toggle('dark', !!dark)
+    $('darkState') && ($('darkState').textContent = pref === 'system' ? 'Auto' : (dark ? 'Dark' : 'Light'))
+  }
+
+  function initDark() {
+    applyDark()
+    $('btn-dark')?.addEventListener('click', () => {
+      const curr = localStorage.getItem('theme') || 'system'
+      const next = curr === 'system' ? 'dark' : (curr === 'dark' ? 'light' : 'system')
+      localStorage.setItem('theme', next)
+      applyDark(next)
+    })
+  }
+
+  // ==== 5) DATA LAYER (Supabase tables) ====
+  /**
+   * Expected tables (recommended schema):
+   * - profiles: { id uuid (PK == auth.uid), email text, full_name text, phone text, country text, avatar_url text, currency text, language text, theme text }
+   * - portfolio: { user_id uuid (PK), allocation jsonb, roi jsonb, perf jsonb }
+   * - holdings: { id uuid PK, user_id uuid, asset text, class text, units numeric, avg_cost numeric, market_value numeric, pl numeric }
+   * - transactions: { id uuid PK, user_id uuid, ts timestamptz, type text, reference text, amount numeric, method text, status text }
+   * - methods: { id uuid PK, user_id uuid, type text, label text, details text }
+   * - alerts: { id uuid PK, user_id uuid, message text, level text, ts timestamptz }
+   * - threads: { id uuid PK, user_id uuid, subject text, last_ts timestamptz }
+   * - messages: { id uuid PK, thread_id uuid, user_id uuid, ts timestamptz, text text, from_admin boolean }
+   */
+
+  // Helpers
+  const q = {
+    // Select helpers
+    async profile(user_id) {
+      return supabase.from('profiles').select('*').eq('id', user_id).maybeSingle()
+    },
+    async upsertProfile(payload) {
+      // Upsert preferred; uses update syntax when row exists
+      return supabase.from('profiles').upsert(payload).select().single()
+    },
+    async updateProfile(user_id, patch) {
+      // <-- explicit UPDATE syntax requested
+      return supabase.from('profiles').update(patch).eq('id', user_id).select().single()
+    },
+    async setPassword(newPassword) {
+      return supabase.auth.updateUser({ password: newPassword })
+    },
+    async portfolio(user_id) {
+      return supabase.from('portfolio').select('*').eq('user_id', user_id).maybeSingle()
+    },
+    async updatePortfolio(user_id, patch) {
+      return supabase.from('portfolio').update(patch).eq('user_id', user_id)
+    },
+    async holdings(user_id, filter = {}) {
+      let req = supabase.from('holdings').select('*').eq('user_id', user_id)
+      if (filter.class && filter.class !== 'all') req = req.eq('class', filter.class)
+      if (filter.search) req = req.ilike('asset', `%${filter.search}%`)
+      return req.order('asset', { ascending: true })
+    },
+    async transactions(user_id, opts = {}) {
+      let req = supabase.from('transactions').select('*').eq('user_id', user_id)
+      if (opts.type && opts.type !== 'all') req = req.eq('type', opts.type)
+      if (opts.from) req = req.gte('ts', opts.from)
+      if (opts.to) req = req.lte('ts', opts.to)
+      return req.order('ts', { ascending: false }).limit(100)
+    },
+    async addTransaction(payload) {
+      return supabase.from('transactions').insert(payload).select().single()
+    },
+    async methods(user_id) {
+      return supabase.from('methods').select('*').eq('user_id', user_id).order('label', { ascending: true })
+    },
+    async addMethod(payload) {
+      return supabase.from('methods').insert(payload).select().single()
+    },
+    async alerts(user_id) {
+      return supabase.from('alerts').select('*').eq('user_id', user_id).order('ts', { ascending: false }).limit(50)
+    },
+    async clearAlerts(user_id) {
+      return supabase.from('alerts').delete().eq('user_id', user_id)
+    },
+    async threads(user_id) {
+      return supabase.from('threads').select('*').eq('user_id', user_id).order('last_ts', { ascending: false })
+    },
+    async addThread(payload) {
+      return supabase.from('threads').insert(payload).select().single()
+    },
+    async messages(thread_id) {
+      return supabase.from('messages').select('*').eq('thread_id', thread_id).order('ts', { ascending: true })
+    },
+    async addMessage(payload) {
+      return supabase.from('messages').insert(payload).select().single()
+    }
+  }
+
+  // ==== 6) STATE + RENDERERS ====
+  const state = {
+    portfolio: null,
+    holdings: [],
+    transactions: [],
+    methods: [],
+    alerts: [],
+    threads: [],
+    activeThreadId: null,
+    charts: {
+      alloc: null,
+      roi: null,
+      perf: null
+    }
+  }
+
+  function fmtMoney(v) {
+    const n = Number(v || 0)
+    return n.toLocaleString(undefined, { style: 'currency', currency: 'USD' })
+  }
+
+  function fmtPct(v) {
+    const n = Number(v || 0)
+    return `${n.toFixed(2)}%`
+  }
+
+  function renderKPIs() {
+    // Simple derivations from holdings & transactions
+    const invested = state.holdings.reduce((a, h) => a + Number(h.units) * Number(h.avg_cost), 0)
+    const mv = state.holdings.reduce((a, h) => a + Number(h.market_value), 0)
+    const returns = mv - invested
+    const balance = Math.max(0, state.transactions
+      .filter(t => t.status !== 'failed')
+      .reduce((a, t) => a + (t.type === 'deposit' ? Number(t.amount) : t.type === 'withdrawal' ? -Number(t.amount) : 0), 0))
+    const roi = invested > 0 ? (returns / invested) * 100 : 0
+
+    $('kpi-invested').textContent = fmtMoney(invested)
+    $('kpi-returns').textContent = fmtMoney(returns)
+    $('kpi-balance').textContent = fmtMoney(balance)
+    $('kpi-roi7d').textContent = fmtPct(roi)
+  }
+
+  function renderRecentTransactions() {
+    const tbody = $('recentTxBody')
+    tbody.innerHTML = ''
+    state.transactions.slice(0, 6).forEach(t => {
+      const tr = document.createElement('tr')
+      tr.innerHTML = `
+        <td class="py-2">${new Date(t.ts).toLocaleString()}</td>
+        <td class="py-2 capitalize">${t.type}</td>
+        <td class="py-2">${t.reference || '-'}</td>
+        <td class="py-2">${fmtMoney(t.amount)}</td>
+        <td class="py-2">
+          <span class="px-2 py-0.5 rounded text-xs ${t.status === 'completed' ? 'bg-green-100 text-green-700' : t.status === 'pending' ? 'bg-amber-100 text-amber-700' : 'bg-rose-100 text-rose-700'}">${t.status}</span>
+        </td>`
+      tbody.appendChild(tr)
+    })
+  }
+
+  function renderTransactionsTable(list = state.transactions) {
+    const tbody = $('txBody')
+    tbody.innerHTML = ''
+    list.forEach(t => {
+      const tr = document.createElement('tr')
+      tr.innerHTML = `
+        <td class="py-2">${new Date(t.ts).toLocaleDateString()}</td>
+        <td class="py-2 capitalize">${t.type}</td>
+        <td class="py-2">${t.reference || '-'}</td>
+        <td class="py-2">${fmtMoney(t.amount)}</td>
+        <td class="py-2">${t.method || '-'}</td>
+        <td class="py-2">${t.status}</td>`
+      tbody.appendChild(tr)
+    })
+  }
+
+  function renderHoldings() {
+    const tbody = $('assetsBody')
+    tbody.innerHTML = ''
+    state.holdings.forEach(h => {
+      const tr = document.createElement('tr')
+      tr.innerHTML = `
+        <td class="py-2">${h.asset}</td>
+        <td class="py-2 capitalize">${h.class}</td>
+        <td class="py-2">${h.units}</td>
+        <td class="py-2">${fmtMoney(h.avg_cost)}</td>
+        <td class="py-2">${fmtMoney(h.market_value)}</td>
+        <td class="py-2 ${h.pl >= 0 ? 'text-green-600' : 'text-rose-600'}">${fmtMoney(h.pl)}</td>`
+      tbody.appendChild(tr)
+    })
+  }
+
+  function renderMethods() {
+    const box = $('linkedMethods')
+    box.innerHTML = state.methods.length
+      ? state.methods.map(m => `<div class="text-gray-700 dark:text-gray-300">${m.type} — <b>${m.label}</b> <span class="text-xs text-gray-500">${m.details}</span></div>`).join('')
+      : '<div class="text-gray-500 text-sm">No methods linked yet.</div>'
+  }
+
+  function renderAlerts() {
+    const box = $('alerts')
+    box.innerHTML = state.alerts.map(a => `
+      <div class="p-3 rounded-xl border border-gray-200 dark:border-gray-700 ${a.level === 'high' ? 'bg-rose-50 dark:bg-rose-950/20' : 'bg-gray-50 dark:bg-gray-800'}">
+        <div class="text-sm">${a.message}</div>
+        <div class="text-xs text-gray-500 mt-1">${new Date(a.ts).toLocaleString()}</div>
+      </div>`).join('')
+  }
+
+  function renderThreads() {
+    const box = $('threads')
+    box.innerHTML = ''
+    state.threads.forEach(t => {
+      const el = document.createElement('button')
+      el.className = `w-full text-left p-2 rounded-lg border border-gray-200 dark:border-gray-700 ${state.activeThreadId === t.id ? 'bg-gray-100 dark:bg-gray-700' : ''}`
+      el.innerHTML = `<div class="font-medium">${t.subject}</div><div class="text-xs text-gray-500">${new Date(t.last_ts).toLocaleString()}</div>`
+      el.addEventListener('click', async () => {
+        state.activeThreadId = t.id
+        renderThreads()
+        await loadMessages(t.id)
       })
-      $('pref-currency').addEventListener('change', async (e) => {
-        await setDoc(doc(db, 'profiles', currentUID), { currency: e.target.value }, { merge: true });
-        loadKPI();
-        showToast('Currency set to ' + e.target.value, 'success');
-      })
+      box.appendChild(el)
+    })
+  }
 
-      $('form-profile').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target).entries());
-        await setDoc(doc(db, 'profiles', currentUID), data, { merge: true });
-        showToast('Profile saved', 'success');
-      })
+  async function loadMessages(thread_id) {
+    const { data, error } = await q.messages(thread_id)
+    if (error) return toast(error.message, 'error')
+    const chat = $('chatWindow')
+    chat.innerHTML = ''
+    data.forEach(m => {
+      const row = document.createElement('div')
+      row.className = `max-w-[80%] px-3 py-2 rounded-xl ${m.from_admin ? 'bg-gray-200 dark:bg-gray-700 self-start' : 'bg-yellow-600 text-white self-end ml-auto'}`
+      row.innerHTML = `<div class="text-sm">${m.text}</div><div class="text-[10px] opacity-70 mt-1">${new Date(m.ts).toLocaleTimeString()}</div>`
+      chat.appendChild(row)
+    })
+    chat.scrollTop = chat.scrollHeight
+  }
 
-      $('form-password').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        showToast('Password update requires re-authentication in this demo.', 'info');
-      })
+  // ==== 7) CHARTS (Chart.js) ====
+  function initOrUpdatePie(ctxId, labels, values) {
+    const ctx = document.getElementById(ctxId)
+    const cfg = {
+      type: 'pie',
+      data: { labels, datasets: [{ data: values }] },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    }
+    if (state.charts.alloc) { state.charts.alloc.data.labels = labels; state.charts.alloc.data.datasets[0].data = values; state.charts.alloc.update(); }
+    else state.charts.alloc = new Chart(ctx, cfg)
+  }
 
-      $('btn-enable-2fa').addEventListener('click', async () => {
-        showToast('2FA setup flow should be handled via Firebase MFA (Phone).', 'info');
-      });
+  function initOrUpdateBar(ctxId, labels, values, label='ROI') {
+    const ctx = document.getElementById(ctxId)
+    const cfg = {
+      type: 'bar',
+      data: { labels, datasets: [{ label, data: values }] },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    }
+    if (state.charts.roi) { state.charts.roi.data.labels = labels; state.charts.roi.data.datasets[0].data = values; state.charts.roi.update(); }
+    else state.charts.roi = new Chart(ctx, cfg)
+  }
 
-      // FAQs
-      async function loadFAQs() {
-        const items = [
-          { q: 'How long do withdrawals take?', a: 'Typically T+1 business day after compliance checks.' },
-          { q: 'Where are my funds held?', a: 'With regulated custodians and broker partners. Details available in your account docs.' },
-          { q: 'How are returns calculated?', a: 'Time-weighted returns combining mark-to-market and cashflows.' },
-        ];
-        const box = $('faqs');
-        box.innerHTML = items.map((it, i) => `
-        <details class="py-3 group">
-          <summary class="cursor-pointer font-medium flex items-center justify-between">
-            <span>${it.q}</span>
-            <span class="text-gray-400 group-open:rotate-180 transition-transform"><i data-lucide="chevron-down" class="w-4 h-4"></i></span>
-          </summary>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">${it.a}</p>
-        </details>`).join('');
-        lucide.createIcons();
+  function initOrUpdateLine(ctxId, labels, values, label='Perf') {
+    const ctx = document.getElementById(ctxId)
+    const cfg = {
+      type: 'line',
+      data: { labels, datasets: [{ label, data: values, tension: 0.35, fill: false }] },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    }
+    if (state.charts.perf) { state.charts.perf.data.labels = labels; state.charts.perf.data.datasets[0].data = values; state.charts.perf.update(); }
+    else state.charts.perf = new Chart(ctx, cfg)
+  }
+
+  function renderPortfolioCharts() {
+    const alloc = (state.portfolio?.allocation || []).map(x => ({ label: x.label, value: Number(x.value) }))
+    const roi   = (state.portfolio?.roi || []).map(x => ({ label: x.label, value: Number(x.value) }))
+    const perf  = (state.portfolio?.perf || { labels: [], values: [] })
+
+    initOrUpdatePie('chartAllocation', alloc.map(x=>x.label), alloc.map(x=>x.value))
+    initOrUpdateBar('chartROI', roi.map(x=>x.label), roi.map(x=>x.value), 'ROI %')
+    initOrUpdateLine('chartPerf', perf.labels || [], (perf.values || []).map(Number), 'Performance')
+  }
+
+  function renderClassBreakdown() {
+    const box = $('classBreakdown')
+    const alloc = (state.portfolio?.allocation || [])
+    if (!alloc.length) { box.innerHTML = '<div class="text-sm text-gray-500">No data</div>'; return }
+    box.innerHTML = alloc.map(a => `
+      <div class="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-700 px-3 py-2">
+        <span>${a.label}</span>
+        <span class="font-semibold">${a.value}%</span>
+      </div>`).join('')
+  }
+
+  // ==== 8) LOAD DATA ====
+  async function bootstrap() {
+    // Profile
+    const { data: prof, error: perr } = await q.profile(currentUser.id)
+    if (perr) toast(perr.message, 'error')
+    $('userEmail').textContent = currentUser.email || '—'
+    $('avatar').src = prof?.avatar_url || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(currentUser.email || 'SI')}`
+
+    // Portfolio
+    const { data: pf, error: pferr } = await q.portfolio(currentUser.id)
+    if (pferr) toast(pferr.message, 'error')
+    state.portfolio = pf || {
+      user_id: currentUser.id,
+      allocation: [{ label: 'Crypto', value: 40 }, { label: 'Real Estate', value: 35 }, { label: 'Stocks', value: 25 }],
+      roi: [{ label: 'Crypto', value: 18 }, { label: 'Real Estate', value: 9 }, { label: 'Stocks', value: 12 }],
+      perf: { labels: ['D1','D2','D3','D4','D5','D6','D7'], values: [100,101,103,102,104,105,106] }
+    }
+
+    // Holdings
+    const { data: holds, error: herr } = await q.holdings(currentUser.id)
+    if (herr) toast(herr.message, 'error')
+    state.holdings = holds || []
+
+    // Transactions
+    const { data: tx, error: terr } = await q.transactions(currentUser.id)
+    if (terr) toast(terr.message, 'error')
+    state.transactions = tx || []
+
+    // Methods
+    const { data: meth, error: merr } = await q.methods(currentUser.id)
+    if (merr) toast(merr.message, 'error')
+    state.methods = meth || []
+
+    // Alerts
+    const { data: al, error: aerr } = await q.alerts(currentUser.id)
+    if (aerr) toast(aerr.message, 'error')
+    state.alerts = al || []
+
+    // Threads
+    const { data: th, error: therr } = await q.threads(currentUser.id)
+    if (therr) toast(therr.message, 'error')
+    state.threads = th || []
+    state.activeThreadId = state.threads[0]?.id || null
+
+    // Render
+    renderMethods()
+    renderAlerts()
+    renderThreads()
+    renderHoldings()
+    renderKPIs()
+    renderRecentTransactions()
+    renderTransactionsTable()
+    renderPortfolioCharts()
+    renderClassBreakdown()
+    if (state.activeThreadId) await loadMessages(state.activeThreadId)
+  }
+
+  // ==== 9) EVENTS / FORMS (CRUD with UPDATE syntax where relevant) ====
+  function initEvents() {
+    // Sign out
+    $('btn-signout')?.addEventListener('click', async () => {
+      await supabase.auth.signOut()
+      toast('Signed out', 'success')
+      location.href = LOGIN_PAGE
+    })
+
+    // Deposit
+    $('form-deposit')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const fd = new FormData(e.currentTarget)
+      const amount = Number(fd.get('amount'))
+      const method = String(fd.get('method'))
+      if (isNaN(amount) || amount <= 0) return toast('Enter a valid amount', 'warn')
+
+      const payload = { user_id: currentUser.id, ts: new Date().toISOString(), type: 'deposit', reference: crypto.randomUUID(), amount, method, status: 'pending' }
+      const { data, error } = await q.addTransaction(payload)
+      if (error) return toast(error.message, 'error')
+      state.transactions.unshift(data)
+      renderRecentTransactions(); renderTransactionsTable(); renderKPIs()
+      toast('Deposit request submitted', 'success')
+      e.currentTarget.reset()
+    })
+
+    // Withdraw
+    $('form-withdraw')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const fd = new FormData(e.currentTarget)
+      const amount = Number(fd.get('amount'))
+      const method = String(fd.get('method'))
+      if (isNaN(amount) || amount <= 0) return toast('Enter a valid amount', 'warn')
+
+      const payload = { user_id: currentUser.id, ts: new Date().toISOString(), type: 'withdrawal', reference: crypto.randomUUID(), amount, method, status: 'pending' }
+      const { data, error } = await q.addTransaction(payload)
+      if (error) return toast(error.message, 'error')
+      state.transactions.unshift(data)
+      renderRecentTransactions(); renderTransactionsTable(); renderKPIs()
+      toast('Withdrawal request submitted', 'success')
+      e.currentTarget.reset()
+    })
+
+    // Link method (modal)
+    const modal = $('modal')
+    $('btn-link')?.addEventListener('click', () => { modal.classList.remove('hidden'); modal.classList.add('flex') })
+    $('modal-close')?.addEventListener('click', () => { modal.classList.add('hidden'); modal.classList.remove('flex') })
+    $('modal-cancel')?.addEventListener('click', () => { modal.classList.add('hidden'); modal.classList.remove('flex') })
+    $('form-link')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const fd = new FormData(e.currentTarget)
+      const payload = {
+        user_id: currentUser.id,
+        type: String(fd.get('type')),
+        label: String(fd.get('label')),
+        details: String(fd.get('details'))
       }
+      const { data, error } = await q.addMethod(payload)
+      if (error) return toast(error.message, 'error')
+      state.methods.push(data)
+      renderMethods()
+      toast('Method linked', 'success')
+      modal.classList.add('hidden'); modal.classList.remove('flex')
+      e.currentTarget.reset()
+    })
 
-      // ====== CHARTS ======
-      let allocationChart, roiChart, perfChart;
-
-      async function getAllocationData() {
-        const snap = await getDocs(collection(db, 'client', currentUID, 'assets'));
-        const byClass = { stocks: 0, crypto: 0, real_estate: 0 };
-        snap.forEach(d => {
-          const a = d.data();
-          byClass[a.class] += (a.units || 0) * (a.price || 0);
-        });
-        return {
-          labels: ['Stocks', 'Crypto', 'Real Estate'],
-          values: [byClass.stocks, byClass.crypto, byClass.real_estate]
-        };
+    // Profile Save (uses explicit UPDATE syntax)
+    $('form-profile')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const fd = new FormData(e.currentTarget)
+      const patch = {
+        full_name: String(fd.get('fullName') || '').trim(),
+        phone: String(fd.get('phone') || '').trim(),
+        country: String(fd.get('country') || '').trim()
       }
+      // UPDATE profiles ... WHERE id = currentUser.id
+      const { data, error } = await q.updateProfile(currentUser.id, patch)
+      if (error) return toast(error.message, 'error')
+      toast('Profile updated', 'success')
+      // Refresh cached
+      await bootstrap()
+    })
 
-      async function getROIData() {
-        const snap = await getDocs(collection(db, 'client', currentUID, 'assets'));
-        const byClass = { stocks: { inv: 0, val: 0 }, crypto: { inv: 0, val: 0 }, real_estate: { inv: 0, val: 0 } };
-        snap.forEach(d => {
-          const a = d.data();
-          byClass[a.class].inv += (a.units || 0) * (a.avgCost || 0);
-          byClass[a.class].val += (a.units || 0) * (a.price || 0);
-        });
-        const classes = ['stocks', 'crypto', 'real_estate'];
-        const rois = classes.map(k => (byClass[k].val - byClass[k].inv) / (byClass[k].inv || 1) * 100);
-        return { labels: ['Stocks', 'Crypto', 'Real Estate'], values: rois };
-      }
+    // Password Update (Supabase auth)
+    $('form-password')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const fd = new FormData(e.currentTarget)
+      const current = String(fd.get('current') || '')
+      const next = String(fd.get('new') || '')
+      if (next.length < 8) return toast('Password must be at least 8 characters', 'warn')
 
-      async function drawCharts(refresh = false) {
-        const alloc = await getAllocationData();
-        const ctxA = document.getElementById('chartAllocation');
-        const ctxR = document.getElementById('chartROI');
-        if (allocationChart && refresh) { allocationChart.destroy(); roiChart.destroy(); }
-        allocationChart = new Chart(ctxA, { type: 'pie', data: { labels: alloc.labels, datasets: [{ data: alloc.values }] }, options: { plugins: { legend: { position: 'bottom' } } } });
-        const roi = await getROIData();
-        roiChart = new Chart(ctxR, { type: 'bar', data: { labels: roi.labels, datasets: [{ label: 'ROI %', data: roi.values }] }, options: { scales: { y: { ticks: { callback: (v) => v + '%' } } } } });
-      }
+      // Optional: verify current via reauth flow (Supabase OTP/email-link). Here we directly update:
+      const { error } = await q.setPassword(next)
+      if (error) return toast(error.message, 'error')
+      toast('Password updated', 'success')
+      e.currentTarget.reset()
+    })
 
-      async function drawPerf(refresh = false) {
-        const ctx = document.getElementById('chartPerf');
-        if (perfChart && refresh) perfChart.destroy();
-        const days = Number(document.getElementById('perfRange').value || 30);
-        // Demo line series
-        const labels = Array.from({ length: days }, (_, i) => new Date(Date.now() - (days - i) * 86400000)).map(d => d.toLocaleDateString());
-        let val = 8000; const series = [];
-        for (let i = 0; i < days; i++) { val += (Math.random() - 0.45) * 80; series.push(Math.max(5000, Math.round(val))); }
-        perfChart = new Chart(ctx, { type: 'line', data: { labels, datasets: [{ label: 'Portfolio Value', data: series, tension: 0.35, fill: false }] }, options: { plugins: { legend: { display: false } } } });
-      }
-      $('perfRange').addEventListener('change', () => drawPerf(true));
+    // Preferences (persist via UPDATE)
+    $('pref-language')?.addEventListener('change', async (e) => {
+      await q.updateProfile(currentUser.id, { language: e.target.value })
+      toast('Language saved', 'success')
+    })
+    $('pref-theme')?.addEventListener('change', async (e) => {
+      const theme = e.target.value
+      localStorage.setItem('theme', theme)
+      applyDark(theme)
+      await q.updateProfile(currentUser.id, { theme })
+      toast('Theme saved', 'success')
+    })
+    $('pref-currency')?.addEventListener('change', async (e) => {
+      await q.updateProfile(currentUser.id, { currency: e.target.value })
+      toast('Currency saved', 'success')
+    })
 
-      // ====== NAV INIT ======
-      $$('#sideNav a').forEach(a => a.addEventListener('click', () => navigate(a.getAttribute('data-route'))));
+    // Transactions filters
+    $('txTypeFilter')?.addEventListener('change', filterTx)
+    $('txFrom')?.addEventListener('change', filterTx)
+    $('txTo')?.addEventListener('change', filterTx)
 
-      // ====== ICONS ======
-      lucide.createIcons();
+    async function filterTx() {
+      const type = $('txTypeFilter').value
+      const from = $('txFrom').value ? new Date($('txFrom').value).toISOString() : null
+      const to   = $('txTo').value ? new Date($('txTo').value).toISOString() : null
+      const { data, error } = await q.transactions(currentUser.id, { type, from, to })
+      if (error) return toast(error.message, 'error')
+      renderTransactionsTable(data || [])
+    }
 
-    </script>
+    // Portfolio perf range (demo transform; real impl: query by range)
+    $('perfRange')?.addEventListener('change', (e) => {
+      const days = Number(e.target.value || 7)
+      const base = 100
+      const labels = Array.from({ length: days }, (_, i) => `D${i+1}`)
+      const values = labels.map((_, i) => base + Math.sin(i/2) * 3 + i*0.4)
+      if (!state.portfolio) state.portfolio = {}
+      state.portfolio.perf = { labels, values }
+      renderPortfolioCharts()
+    })
+
+    // Holdings filters
+    $('assetSearch')?.addEventListener('input', debounce(async (e) => {
+      const search = e.target.value
+      const klass = $('assetFilter').value
+      const { data, error } = await q.holdings(currentUser.id, { search, class: klass })
+      if (error) return toast(error.message, 'error')
+      state.holdings = data || []
+      renderHoldings(); renderKPIs()
+    }, 250))
+    $('assetFilter')?.addEventListener('change', async (e) => {
+      const klass = e.target.value
+      const search = $('assetSearch').value
+      const { data, error } = await q.holdings(currentUser.id, { search, class: klass })
+      if (error) return toast(error.message, 'error')
+      state.holdings = data || []
+      renderHoldings(); renderKPIs()
+    })
+
+    // Threads / messages
+    $('btn-new-thread')?.addEventListener('click', async () => {
+      const subj = prompt('Subject for new conversation:')
+      if (!subj) return
+      const payload = { user_id: currentUser.id, subject: subj, last_ts: new Date().toISOString() }
+      const { data, error } = await q.addThread(payload)
+      if (error) return toast(error.message, 'error')
+      state.threads.unshift(data)
+      state.activeThreadId = data.id
+      renderThreads()
+      await loadMessages(data.id)
+    })
+    $('form-message')?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const text = $('msgText').value.trim()
+      if (!text) return
+      if (!state.activeThreadId) return toast('Select or create a thread', 'warn')
+      const payload = { thread_id: state.activeThreadId, user_id: currentUser.id, ts: new Date().toISOString(), text, from_admin: false }
+      const { data, error } = await q.addMessage(payload)
+      if (error) return toast(error.message, 'error')
+      $('msgText').value = ''
+      await loadMessages(state.activeThreadId)
+    })
+
+    // Alerts
+    $('btn-clear-alerts')?.addEventListener('click', async () => {
+      const { error } = await q.clearAlerts(currentUser.id)
+      if (error) return toast(error.message, 'error')
+      state.alerts = []
+      renderAlerts()
+      toast('Alerts cleared', 'success')
+    })
+  }
+
+  // ==== 10) UTILS ====
+  function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms) }
+  }
+
+  // ==== 11) INIT ====
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      // Icons
+      if (window.lucide) window.lucide.createIcons()
+
+      initDark()
+      initRouter()
+
+      currentUser = await ensureSession()
+      if (!currentUser) return
+
+      await bootstrap()
+      initEvents()
+
+      // Optional: badge demo for notifications count
+      const badge = $('badge'); if (badge) { badge.textContent = String((state.alerts || []).length); badge.classList.toggle('hidden', (state.alerts || []).length === 0) }
+
+      toast('Dashboard ready', 'success')
+    } catch (err) {
+      console.error(err)
+      toast('Failed to initialize dashboard', 'error')
+    }
+  })
+})()
+</script>
+
   </body>
 
 </html>

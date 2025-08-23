@@ -4,48 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | SinoInvest</title>
+    <title>Login | SINOInvest</title>
+    <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script> 
 
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-    <script src="firebase-config.js"></script>
-
-    <script>
-        async function loginClient() {
-            const email = document.getElementById("client-email").value.trim();
-            const password = document.getElementById("client-password").value.trim();
-            const msg = document.getElementById("client-login-msg");
-
-            try {
-                const userCredential = await auth.signInWithEmailAndPassword(email, password);
-                const user = userCredential.user;
-
-                const doc = await db.collection("client").doc(user.uid).get();
-                if (!doc.exists || doc.data().role !== "client") {
-                    msg.textContent = "Unauthorized access. Not a client.";
-                    auth.signOut();
-                    return;
-                }
-
-                // Redirect to client dashboard
-                window.location.href = "dashboard.html";
-
-            } catch (err) {
-                console.error(err);
-                msg.textContent = err.message;
-            }
-        }
-    </script>
+   
 
 
 </head>
 
-<body>
+<body >
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
@@ -53,48 +24,72 @@
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="img/login-office.jpeg" alt="Office" />
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="img/login-office-dark.jpeg" alt="Office" />
                 </div>
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <div class="w-full">
-                        <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                            Login
-                        </h1>
-                        <label class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                <input id="client-email"
-                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="your@example.com"
-                />
-              </label>
-                        <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                <input  id="client-password"
-                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="******"
-                  type="password"
-                />
-              </label>
-
-                        <!-- You should use a button here, as the anchor is only used for the example  -->
-                        <button onclick="loginClient()" class="block w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-gray-600 rounded-lg hover:bg-white hover:text-yellow-600" >Log in
-                        </button>
-                        <p id="client-login-msg"></p>
-
-                        <p class="mt-4">
-                            <a class="text-sm font-medium text-yellow-600 dark:text-yellow-400 hover:underline" href="forgot-password.html">
-                  Forgot your password?
-                </a>
-                        </p>
-                        <p class="mt-1">
-                            <a class="text-sm font-medium text-yellow-600 dark:text-yellow-400 hover:underline" href=" create-account.html">
-                  Create account
-                </a>
-                        </p>
-                    </div>
-                </div>
+                <div class="w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6">
+                    <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+                    <form id="loginForm" class="space-y-4">
+                      <input type="email" id="email" placeholder="Email Address"
+                        class="w-full rounded-xl border px-3 py-2 dark:bg-gray-700 dark:text-white" required />
+                
+                      <input type="password" id="password" placeholder="Password"
+                        class="w-full rounded-xl border px-3 py-2 dark:bg-gray-700 dark:text-white" required />
+                
+                      <button type="submit"
+                        class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-xl font-medium">
+                        Login
+                      </button>
+                    </form>
+                
+                    <p class="mt-4 text-sm text-center text-gray-600 dark:text-gray-400">
+                      Don’t have an account?
+                      <a href="signup.html" class="text-yellow-600 font-medium">Sign Up</a>
+                    </p>
+                
+                    <div id="toast" class="hidden mt-3 text-sm text-center rounded-lg p-2"></div>
+                  </div>
             </div>
         </div>
     </div>
 
+    
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script type="module">
+   import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+   const SUPABASE_URL = 'https://nqfziiabvgjxolfklein.supabase.co';        // <-- replace
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xZnppaWFidmdqeG9sZmtsZWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3MzI2MDYsImV4cCI6MjA3MTMwODYwNn0.LmupQPyQzC2QZ-kIkNdr0_XO76zyJqLSygA1Tc03R4s'; 
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const toast = (msg, type="info") => {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.className = "mt-3 text-sm text-center rounded-lg p-2 " + 
+        (type==="error" ? "bg-rose-600 text-white" : "bg-emerald-600 text-white");
+      el.classList.remove("hidden");
+      setTimeout(() => el.classList.add("hidden"), 3000);
+    };
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast("Invalid email", "error");
+      if (password.length < 8) return toast("Password must be 8+ characters", "error");
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) return toast(error.message, "error");
+
+      toast("Login successful", "success");
+      setTimeout(() => location.href = "dashboard.html", 1000);
+    });
+
+    supabase.auth.onAuthStateChange((e, session) => {
+      if (session?.user) location.href = "dashboard.html";
+    });
+  </script>
 </body>
 
 </html>
