@@ -443,63 +443,63 @@
         </div>
         <!-- About End -->
 
-        <!--Calculator-->
-        <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-            <section class="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
-                style="background-image: url('img/calculator.png');">
+       <!--Calculator-->
+       <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+        <section class="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
+            style="background-image: url('img/calculator.png');">
 
-                <div
-                    class="bg-white justify-center rounded-2xl shadow-lg max-w-3xl w-full p-6 flex flex-col md:flex-row gap-12">
-                    <!-- Left section: Input controls -->
-                    <div class="flex-1">
-                        <!-- Initial investment -->
-                        <label class="block text-gray-700 font-medium mb-2">Initial investment</label>
-                        <div class="flex items-center justify-between">
-                            <input id="investment" type="range" min="50" max="50000" value="15000" step="500"
-                                class="w-full accent-yellow-500">
-                            <span id="investmentValue" class="ml-4 font-semibold">€15,000</span>
-                        </div>
-
-                        <!-- Investment period -->
-                        <label class="block text-gray-700 font-medium mt-6 mb-2">Investment period (months)</label>
-                        <div class="flex items-center justify-between">
-                            <input id="months" type="range" min="1" max="12" value="5" step="1"
-                                class="w-full accent-yellow-500">
-                            <span id="yearsValue" class="ml-4 font-semibold">12 months</span>
-                        </div>
-
-                        <!-- Loyalty bonus -->
-                        <label class="block text-gray-700 font-medium mt-6 mb-2">Loyalty bonus</label>
-                        <div class="flex gap-3" id="bonusButtons">
-                            <button data-bonus="1.5"
-                                class="bonus-btn px-4 py-2 bg-green-50 border border-gray-300 rounded-lg font-medium text-yellow-600 hover:bg-green-100">1.5%</button>
-                            <button data-bonus="2"
-                                class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">2%</button>
-                            <button data-bonus="2.5"
-                                class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">2.5%</button>
-                            <button data-bonus="3"
-                                class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">3%</button>
-                        </div>
+            <div
+                class="bg-white justify-center rounded-2xl shadow-lg max-w-3xl w-full p-6 flex flex-col md:flex-row gap-12">
+                <!-- Left section: Input controls -->
+                <div class="flex-1">
+                    <!-- Initial investment -->
+                    <label class="block text-gray-700 font-medium mb-2">Initial investment</label>
+                    <div class="flex items-center justify-between">
+                        <input id="investment" type="range" min="50" max="50000" value="15000" step="500"
+                            class="w-full accent-yellow-500">
+                        <span id="investmentValue" class="ml-4 font-semibold">€15,000</span>
                     </div>
 
-                    <!-- Right section: Output -->
-                    <div class="flex-1 bg-gray-50 rounded-xl p-6 flex flex-col justify-between">
-                        <div>
-                            <p class="text-gray-600 font-medium">Future value in <span id="futureYears">5</span> years
-                            </p>
-                            <p id="futureValue" class="text-yellow-600 text-4xl font-bold mt-2">€17,580</p>
-                        </div>
-                        <a  href="starter.html">
-                        <button href="starter.html" class="mt-6 w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800">
-                            Start Investing
-                        </button></a>
-                        <div class="mt-4 text-sm text-gray-500">
-                            <p>Average annual return <span id="annualReturn" class="float-right">15.6%</span></p>
-                            <p>Earned return <span id="earnedReturn" class="float-right">€2,580</span></p>
-                        </div>
+                    <!-- Investment period -->
+                    <label class="block text-gray-700 font-medium mt-6 mb-2">Investment period (months)</label>
+                    <div class="flex items-center justify-between">
+                        <input id="years" type="range" min="1" max="6" value="5" step="1"
+                            class="w-full accent-yellow-500">
+                        <span id="yearsValue" class="ml-4 font-semibold">12 months</span>
+                    </div>
+
+                    <!-- Loyalty bonus -->
+                    <label class="block text-gray-700 font-medium mt-6 mb-2">Loyalty bonus</label>
+                    <div class="flex gap-3" id="bonusButtons">
+                        <button data-bonus="15"
+                            class="bonus-btn px-4 py-2 bg-green-50 border border-gray-300 rounded-lg font-medium text-yellow-600 hover:bg-green-100">15%</button>
+                        <button data-bonus="20"
+                            class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">20%</button>
+                        <button data-bonus="25"
+                            class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">25%</button>
+                        <button data-bonus="30"
+                            class="bonus-btn px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg hover:bg-gray-100">30%</button>
                     </div>
                 </div>
-            </section>
+
+                <!-- Right section: Output -->
+                <div class="flex-1 bg-gray-50 rounded-xl p-6 flex flex-col justify-between">
+                    <div>
+                        <p class="text-gray-600 font-medium">Future value in <span id="futureYears">5</span> months
+                        </p>
+                        <p id="futureValue" class="text-yellow-600 text-4xl font-bold mt-2">€17,580</p>
+                    </div>
+                    <a  href="starter.html">
+                    <button href="starter.html" class="mt-6 w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800">
+                        Start Investing
+                    </button></a>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p>Average annual return <span id="annualReturn" class="float-right">15.6%</span></p>
+                        <p>Earned return <span id="earnedReturn" class="float-right">€2,580</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
         </div>
 
         <!--Investment Plans-->
@@ -2058,62 +2058,62 @@
             }
         </script>
 
-        <!--Invest Calculator-->
-        <script>
-            const investmentInput = document.getElementById("investment");
-            const yearsInput = document.getElementById("years");
-            const investmentValue = document.getElementById("investmentValue");
-            const yearsValue = document.getElementById("yearsValue");
-            const futureYears = document.getElementById("futureYears");
-            const futureValue = document.getElementById("futureValue");
-            const annualReturn = document.getElementById("annualReturn");
-            const earnedReturn = document.getElementById("earnedReturn");
-            const bonusButtons = document.querySelectorAll(".bonus-btn");
+           <!--Invest Calculator-->
+       <script>
+        const investmentInput = document.getElementById("investment");
+        const yearsInput = document.getElementById("years");
+        const investmentValue = document.getElementById("investmentValue");
+        const yearsValue = document.getElementById("yearsValue");
+        const futureYears = document.getElementById("futureYears");
+        const futureValue = document.getElementById("futureValue");
+        const annualReturn = document.getElementById("annualReturn");
+        const earnedReturn = document.getElementById("earnedReturn");
+        const bonusButtons = document.querySelectorAll(".bonus-btn");
 
-            let bonusRate = 1.5; // default
+        let bonusRate = document.querySelectorAll(".bonus-btn"); // default
 
-            function formatCurrency(value) {
-                return "€" + value.toLocaleString("en-US", { minimumFractionDigits: 0 });
-            }
+        function formatCurrency(value) {
+            return "€" + value.toLocaleString("en-US", { minimumFractionDigits: 0 });
+        }
 
-            function calculate() {
-                const principal = parseFloat(investmentInput.value);
-                const years = parseInt(yearsInput.value);
-                const annualRate = 0.12 + (bonusRate / 100); // example: base 12% + bonus
-                const fv = principal * Math.pow((1 + annualRate), years);
-                const earned = fv - principal;
-                const avgReturn = (annualRate * 100).toFixed(1) + "%";
+        function calculate() {
+            const principal = parseFloat(investmentInput.value);
+            const years = parseInt(yearsInput.value);
+            const annualRate = 15 * (bonusRate / 100); // example: base 12% + bonus
+            const fv = principal * Math.pow((1 + annualRate), years);
+            const earned = fv - principal;
+            const avgReturn = (annualRate * 100).toFixed(1) + "%";
 
-                // Update UI
-                investmentValue.textContent = formatCurrency(principal);
-                yearsValue.textContent = years + (years === 1 ? " year" : " years");
-                futureYears.textContent = years;
-                futureValue.textContent = formatCurrency(Math.round(fv));
-                annualReturn.textContent = avgReturn;
-                earnedReturn.textContent = formatCurrency(Math.round(earned));
-            }
+            // Update UI
+            investmentValue.textContent = formatCurrency(principal);
+            yearsValue.textContent = years + (years === 1 ? " year" : " months");
+            futureYears.textContent = years;
+            futureValue.textContent = formatCurrency(Math.round(fv));
+            annualReturn.textContent = avgReturn;
+            earnedReturn.textContent = formatCurrency(Math.round(earned));
+        }
 
-            // Slider events
-            investmentInput.addEventListener("input", calculate);
-            yearsInput.addEventListener("input", calculate);
+        // Slider events
+        investmentInput.addEventListener("input", calculate);
+        yearsInput.addEventListener("input", calculate);
 
-            // Bonus buttons
-            bonusButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    bonusButtons.forEach(b => {
-                        b.classList.remove("bg-green-50", "border-green-500", "text-yellow-600");
-                        b.classList.add("bg-gray-50", "border-gray-300");
-                    });
-                    btn.classList.add("bg-green-50", "border-green-500", "text-yellow-600");
-                    btn.classList.remove("bg-gray-50", "border-gray-300");
-                    bonusRate = parseFloat(btn.dataset.bonus);
-                    calculate();
+        // Bonus buttons
+        bonusButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                bonusButtons.forEach(b => {
+                    b.classList.remove("bg-green-50", "border-green-500", "text-yellow-600");
+                    b.classList.add("bg-gray-50", "border-gray-300");
                 });
+                btn.classList.add("bg-green-50", "border-green-500", "text-yellow-600");
+                btn.classList.remove("bg-gray-50", "border-gray-300");
+                bonusRate = parseFloat(btn.dataset.bonus);
+                calculate();
             });
+        });
 
-            // Initial calc
-            calculate();
-        </script>
+        // Initial calc
+        calculate();
+    </script>
 
         <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -2132,4 +2132,5 @@
     </body>
 
 </html>
+
 
